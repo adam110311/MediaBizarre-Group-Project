@@ -1,34 +1,67 @@
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\bin\Debug\net8.0\appsettings.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\bin\Debug\net8.0\MediaBizzare.staticwebassets.runtime.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\bin\Debug\net8.0\MediaBizzare.staticwebassets.endpoints.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\bin\Debug\net8.0\MediaBizzare.exe
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\bin\Debug\net8.0\MediaBizzare.deps.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\bin\Debug\net8.0\MediaBizzare.runtimeconfig.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\bin\Debug\net8.0\MediaBizzare.dll
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\bin\Debug\net8.0\MediaBizzare.pdb
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\rpswa.dswa.cache.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\MediaBizzare.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\MediaBizzare.AssemblyInfoInputs.cache
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\MediaBizzare.AssemblyInfo.cs
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\MediaBizzare.csproj.CoreCompileInputs.cache
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\MediaBizzare.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\MediaBizzare.RazorAssemblyInfo.cache
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\MediaBizzare.RazorAssemblyInfo.cs
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\MediaBizzare.sourcelink.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\rjimswa.dswa.cache.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\scopedcss\bundle\MediaBizzare.styles.css
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\scopedcss\projectbundle\MediaBizzare.bundle.scp.css
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\staticwebassets.build.json.cache
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\MediaBizzare.dll
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\refint\MediaBizzare.dll
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\MediaBizzare.pdb
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\MediaBizzare.genruntimeconfig.cache
-C:\Users\ya boy\source\repos\smart-charger\MediaBizarre-Group-Project\MediaBizzare\MediaBizzare\obj\Debug\net8.0\ref\MediaBizzare.dll
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/bin/Debug/net8.0/appsettings.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.staticwebassets.runtime.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.staticwebassets.endpoints.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.exe
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.deps.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.runtimeconfig.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.dll
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.pdb
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/rpswa.dswa.cache.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.AssemblyInfoInputs.cache
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.AssemblyInfo.cs
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.csproj.CoreCompileInputs.cache
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.RazorAssemblyInfo.cache
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.RazorAssemblyInfo.cs
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.sourcelink.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/rjimswa.dswa.cache.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/scopedcss/bundle/MediaBizzare.styles.css
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/scopedcss/projectbundle/MediaBizzare.bundle.scp.css
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/staticwebassets.build.json.cache
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/staticwebassets.upToDateCheck.txt
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.dll
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/refint/MediaBizzare.dll
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.pdb
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.genruntimeconfig.cache
+C:/Users/ya boy/source/repos/smart-charger/MediaBizarre-Group-Project/MediaBizzare/MediaBizzare/obj/Debug/net8.0/ref/MediaBizzare.dll
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/bin/Debug/net8.0/appsettings.Development.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/bin/Debug/net8.0/appsettings.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.staticwebassets.runtime.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.staticwebassets.endpoints.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.deps.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.runtimeconfig.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.dll
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/bin/Debug/net8.0/MediaBizzare.pdb
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/rpswa.dswa.cache.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.GeneratedMSBuildEditorConfig.editorconfig
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.AssemblyInfoInputs.cache
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.AssemblyInfo.cs
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.csproj.CoreCompileInputs.cache
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.MvcApplicationPartsAssemblyInfo.cache
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.RazorAssemblyInfo.cache
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.RazorAssemblyInfo.cs
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.sourcelink.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/rjimswa.dswa.cache.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/scopedcss/bundle/MediaBizzare.styles.css
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/scopedcss/projectbundle/MediaBizzare.bundle.scp.css
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/staticwebassets.build.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/staticwebassets.build.json.cache
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/staticwebassets.development.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.dll
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/refint/MediaBizzare.dll
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.pdb
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/MediaBizzare.genruntimeconfig.cache
+/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/Debug/net8.0/ref/MediaBizzare.dll

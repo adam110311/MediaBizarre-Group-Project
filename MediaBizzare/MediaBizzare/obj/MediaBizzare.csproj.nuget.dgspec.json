@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\MediaBizzare\\MediaBizzare.csproj": {}
+    "/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/MediaBizzare.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\MediaBizzare\\MediaBizzare.csproj": {
+    "/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/MediaBizzare.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\MediaBizzare\\MediaBizzare.csproj",
+        "projectUniqueName": "/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/MediaBizzare.csproj",
         "projectName": "MediaBizzare",
-        "projectPath": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\MediaBizzare\\MediaBizzare.csproj",
-        "packagesPath": "C:\\Users\\ya boy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\MediaBizzare\\obj\\",
+        "projectPath": "/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/MediaBizzare.csproj",
+        "packagesPath": "/Users/David/.nuget/packages/",
+        "outputPath": "/Users/David/MediaBizarre-Group-Project-main/MediaBizzare/MediaBizzare/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ya boy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/David/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,16 +43,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Relational": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -71,6 +54,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -79,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.311/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

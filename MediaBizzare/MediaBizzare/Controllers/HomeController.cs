@@ -23,6 +23,35 @@ namespace MediaBizzare.Controllers
             return View();
         }
 
+        public IActionResult HomePage()
+        {
+            return View();
+        }
+        public IActionResult Categories()
+        {
+            return View();
+        }
+        public IActionResult CompLap()
+        {
+            return View();
+        }
+        public IActionResult GameDivert()
+        {
+            return View();
+        }
+        public IActionResult HA()
+        {
+            return View();
+        }
+        public IActionResult PhoneWear()
+        {
+            return View();
+        }
+        public IActionResult TVaudio()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
