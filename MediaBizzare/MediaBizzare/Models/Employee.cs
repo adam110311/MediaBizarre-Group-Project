@@ -1,12 +1,28 @@
-﻿namespace MediaBizzare.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MediaBizzare.Models
 {
     public class Employee
     {
         public int Id { get; set; }
-        public int userId { get; set; }
-        public int departmentId { get; set; }
-        public string job_title { get; set; }
-        public string emergency_contact { get; set; }
-        public string emergency_phone { get; set; }
-        }
+
+        [Required]
+        public int UserId { get; set; }
+
+        [Required]
+        public int DepartmentId { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string JobTitle { get; set; } = string.Empty;
+
+        [Required]
+        [StringLength(100)]
+        public string EmergencyContact { get; set; } = string.Empty;
+
+        [Required]
+        [Phone]
+        [StringLength(30)]
+        public string EmergencyPhone { get; set; } = string.Empty;
+    }
 }

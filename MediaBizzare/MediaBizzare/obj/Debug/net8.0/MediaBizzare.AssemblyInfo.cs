@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MediaBizzare")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+685f7cf1b61504694a0e056702c4b617f3b0f995")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9771b7e77c0f69bf5edece55d4804192ff97d796")]
 [assembly: System.Reflection.AssemblyProductAttribute("MediaBizzare")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MediaBizzare")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
