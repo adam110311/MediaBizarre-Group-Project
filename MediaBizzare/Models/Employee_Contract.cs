@@ -6,7 +6,7 @@ namespace MediaBizzare.Models
     {
         public int Id { get; set; }
         [Required]
-        public int employeeId { get; set; }
+        public Employee? Employee { get; set; }
         [Required]
         public DateTime signature_date { get; set; }
         [Required]

@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace MediaBizzare.Models
 {
     public class ErrorViewModel
