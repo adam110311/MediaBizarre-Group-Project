@@ -7,9 +7,9 @@ namespace MediaBizzare.Models
         public int Id { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public User? User { get; set; }
-        
+
         [Required]
         public int DepartmentId { get; set; }
         public Department? Department { get; set; }

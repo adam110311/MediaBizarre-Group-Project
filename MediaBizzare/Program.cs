@@ -10,6 +10,11 @@ builder.Services.AddDbContext<MediaBizzareContext>(options =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<MediaBizzareContext>();
+    DbSeeder.Seed(context);
+}
 
 if (!app.Environment.IsDevelopment())
 {

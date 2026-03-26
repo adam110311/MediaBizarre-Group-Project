@@ -3,6 +3,7 @@ using System;
 using MediaBizzare.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MediaBizzare.Migrations
 {
     [DbContext(typeof(MediaBizzareContext))]
-    partial class MediaBizzareContextModelSnapshot : ModelSnapshot
+    [Migration("20260326104348_AddDepartmentAndCategory")]
+    partial class AddDepartmentAndCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,8 +120,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Employees");
                 });
@@ -213,8 +215,8 @@ namespace MediaBizzare.Migrations
                         .IsRequired();
 
                     b.HasOne("MediaBizzare.Models.User", "User")
-                        .WithOne("Employee")
-                        .HasForeignKey("MediaBizzare.Models.Employee", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -233,11 +235,6 @@ namespace MediaBizzare.Migrations
             modelBuilder.Entity("MediaBizzare.Models.Employee", b =>
                 {
                     b.Navigation("ManagedDepartment");
-                });
-
-            modelBuilder.Entity("MediaBizzare.Models.User", b =>
-                {
-                    b.Navigation("Employee");
                 });
 #pragma warning restore 612, 618
         }

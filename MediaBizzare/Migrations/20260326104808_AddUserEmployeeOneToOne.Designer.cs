@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MediaBizzare.Migrations
 {
     [DbContext(typeof(MediaBizzareContext))]
-    [Migration("20260326093348_AddDepartmentAndCategory")]
-    partial class AddDepartmentAndCategory
+    [Migration("20260326104808_AddUserEmployeeOneToOne")]
+    partial class AddUserEmployeeOneToOne
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -112,14 +112,16 @@ namespace MediaBizzare.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DepartmentId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Employees");
                 });
@@ -214,8 +216,8 @@ namespace MediaBizzare.Migrations
                         .IsRequired();
 
                     b.HasOne("MediaBizzare.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
+                        .WithOne("Employee")
+                        .HasForeignKey("MediaBizzare.Models.Employee", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -234,6 +236,11 @@ namespace MediaBizzare.Migrations
             modelBuilder.Entity("MediaBizzare.Models.Employee", b =>
                 {
                     b.Navigation("ManagedDepartment");
+                });
+
+            modelBuilder.Entity("MediaBizzare.Models.User", b =>
+                {
+                    b.Navigation("Employee");
                 });
 #pragma warning restore 612, 618
         }
