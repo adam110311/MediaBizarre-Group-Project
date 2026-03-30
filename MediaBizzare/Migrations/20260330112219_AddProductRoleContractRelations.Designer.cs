@@ -3,6 +3,7 @@ using System;
 using MediaBizzare.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MediaBizzare.Migrations
 {
     [DbContext(typeof(MediaBizzareContext))]
-    partial class MediaBizzareContextModelSnapshot : ModelSnapshot
+    [Migration("20260330112219_AddProductRoleContractRelations")]
+    partial class AddProductRoleContractRelations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

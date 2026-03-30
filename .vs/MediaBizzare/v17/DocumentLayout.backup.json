@@ -3,84 +3,92 @@
   "WorkspaceRootPath": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\data\\mediabizzarecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\data\\mediabizzarecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\mediabizzare.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\mediabizzare.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\data\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\data\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\controllers\\productvariationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\controllers\\productvariationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\categoryproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\categoryproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\productvariations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\productvariations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\employeerole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\employeerole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\controllers\\employee_contractcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\controllers\\employee_contractcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\employee_contract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\employee_contract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\categoryproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\categoryproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\data\\mediabizzarecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\data\\mediabizzarecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\productvariations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\productvariations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\data\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\data\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|c:\\users\\ya boy\\source\\repos\\smart-charger\\mediabizarre-group-project\\mediabizzare\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A2C99B-DE36-4D5A-81D4-21F049E65F28}|MediaBizzare\\MediaBizzare.csproj|solutionrelative:mediabizzare\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -90,7 +98,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -122,46 +130,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "MediaBizzare\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwBcAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ProductVariationsController.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\ProductVariationsController.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Controllers\\ProductVariationsController.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\ProductVariationsController.cs",
+              "RelativeToolTip": "MediaBizzare\\Controllers\\ProductVariationsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T10:42:32.801Z",
+              "WhenOpened": "2026-03-30T11:26:59.966Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DbSeeder.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Data\\DbSeeder.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Data\\DbSeeder.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Data\\DbSeeder.cs",
-              "RelativeToolTip": "MediaBizzare\\Data\\DbSeeder.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAswGIAAAA0AAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "MediaBizzare\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T10:06:55.158Z",
+              "WhenOpened": "2026-03-30T11:26:10.01Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CategoryProduct.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\CategoryProduct.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Models\\CategoryProduct.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\CategoryProduct.cs",
-              "RelativeToolTip": "MediaBizzare\\Models\\CategoryProduct.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Employee_ContractController.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\Employee_ContractController.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Controllers\\Employee_ContractController.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\Employee_ContractController.cs",
+              "RelativeToolTip": "MediaBizzare\\Controllers\\Employee_ContractController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T09:23:02.623Z",
+              "WhenOpened": "2026-03-30T11:24:16.802Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "Department.cs",
               "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Department.cs",
               "RelativeDocumentMoniker": "MediaBizzare\\Models\\Department.cs",
@@ -174,150 +182,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
+              "Title": "Employee_Contract.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Employee_Contract.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Models\\Employee_Contract.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Employee_Contract.cs",
+              "RelativeToolTip": "MediaBizzare\\Models\\Employee_Contract.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T08:20:51.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Employee.cs",
               "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Employee.cs",
               "RelativeDocumentMoniker": "MediaBizzare\\Models\\Employee.cs",
               "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Employee.cs",
               "RelativeToolTip": "MediaBizzare\\Models\\Employee.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwB8AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-18T09:26:39.383Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MediaBizzareContext.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Data\\MediaBizzareContext.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Data\\MediaBizzareContext.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Data\\MediaBizzareContext.cs",
-              "RelativeToolTip": "MediaBizzare\\Data\\MediaBizzareContext.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAmwA0AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T20:00:58.786Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Category.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Models\\Category.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Category.cs",
-              "RelativeToolTip": "MediaBizzare\\Models\\Category.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T08:47:33.457Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\ErrorViewModel.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Models\\ErrorViewModel.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\ErrorViewModel.cs",
-              "RelativeToolTip": "MediaBizzare\\Models\\ErrorViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T08:48:01.186Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MediaBizzare.csproj",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\MediaBizzare.csproj",
-              "RelativeDocumentMoniker": "MediaBizzare\\MediaBizzare.csproj",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\MediaBizzare.csproj",
-              "RelativeToolTip": "MediaBizzare\\MediaBizzare.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-25T20:19:11.396Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\User.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\User.cs",
-              "RelativeToolTip": "MediaBizzare\\Models\\User.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAiwC4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T08:48:19.359Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Program.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Program.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Program.cs",
-              "RelativeToolTip": "MediaBizzare\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T20:01:57.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Role.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Role.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Models\\Role.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Role.cs",
-              "RelativeToolTip": "MediaBizzare\\Models\\Role.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T08:48:14.29Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\appsettings.json",
-              "RelativeDocumentMoniker": "MediaBizzare\\appsettings.json",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\appsettings.json",
-              "RelativeToolTip": "MediaBizzare\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-25T20:34:52Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CategoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\CategoriesController.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Controllers\\CategoriesController.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\CategoriesController.cs",
-              "RelativeToolTip": "MediaBizzare\\Controllers\\CategoriesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T09:36:57.854Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Models\\Product.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Product.cs",
-              "RelativeToolTip": "MediaBizzare\\Models\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T08:48:05.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 9,
               "Title": "DepartmentsController.cs",
               "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\DepartmentsController.cs",
               "RelativeDocumentMoniker": "MediaBizzare\\Controllers\\DepartmentsController.cs",
@@ -330,15 +221,119 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "EmployeesController.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\EmployeesController.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Controllers\\EmployeesController.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\EmployeesController.cs",
-              "RelativeToolTip": "MediaBizzare\\Controllers\\EmployeesController.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAuwDsAAAANAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Role.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Models\\Role.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Role.cs",
+              "RelativeToolTip": "MediaBizzare\\Models\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T20:42:18.614Z",
+              "WhenOpened": "2026-03-26T08:48:14.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CategoryProduct.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\CategoryProduct.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Models\\CategoryProduct.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\CategoryProduct.cs",
+              "RelativeToolTip": "MediaBizzare\\Models\\CategoryProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T09:23:02.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmployeeRole.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\EmployeeRole.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Models\\EmployeeRole.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\EmployeeRole.cs",
+              "RelativeToolTip": "MediaBizzare\\Models\\EmployeeRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T08:21:00.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "MediaBizzare\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T08:48:01.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Product.cs",
+              "RelativeToolTip": "MediaBizzare\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T08:48:05.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MediaBizzareContext.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Data\\MediaBizzareContext.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Data\\MediaBizzareContext.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Data\\MediaBizzareContext.cs",
+              "RelativeToolTip": "MediaBizzare\\Data\\MediaBizzareContext.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAADwv3MAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T20:00:58.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Category.cs",
+              "RelativeToolTip": "MediaBizzare\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T08:47:33.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "MediaBizzare\\Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T09:36:57.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "MediaBizzare\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwBcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T10:42:32.801Z",
               "EditorCaption": ""
             },
             {
@@ -349,35 +344,74 @@
               "RelativeDocumentMoniker": "MediaBizzare\\Models\\ProductVariations.cs",
               "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\ProductVariations.cs",
               "RelativeToolTip": "MediaBizzare\\Models\\ProductVariations.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-18T09:24:13.172Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "EmployeeRole.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\EmployeeRole.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Models\\EmployeeRole.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\EmployeeRole.cs",
-              "RelativeToolTip": "MediaBizzare\\Models\\EmployeeRole.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 17,
+              "Title": "DbSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Data\\DbSeeder.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Data\\DbSeeder.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Data\\DbSeeder.cs",
+              "RelativeToolTip": "MediaBizzare\\Data\\DbSeeder.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAgwAwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T08:21:00.25Z",
+              "WhenOpened": "2026-03-26T10:06:55.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Program.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Program.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Program.cs",
+              "RelativeToolTip": "MediaBizzare\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T20:01:57.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\User.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\User.cs",
+              "RelativeToolTip": "MediaBizzare\\Models\\User.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAiwC4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T08:48:19.359Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "Employee_Contract.cs",
-              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Employee_Contract.cs",
-              "RelativeDocumentMoniker": "MediaBizzare\\Models\\Employee_Contract.cs",
-              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Models\\Employee_Contract.cs",
-              "RelativeToolTip": "MediaBizzare\\Models\\Employee_Contract.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\appsettings.json",
+              "RelativeDocumentMoniker": "MediaBizzare\\appsettings.json",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\appsettings.json",
+              "RelativeToolTip": "MediaBizzare\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-25T20:34:52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "MediaBizzare\\Controllers\\EmployeesController.cs",
+              "ToolTip": "C:\\Users\\ya boy\\source\\repos\\smart-charger\\MediaBizarre-Group-Project\\MediaBizzare\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "MediaBizzare\\Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAuwDsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T08:20:51.516Z",
+              "WhenOpened": "2026-03-25T20:42:18.614Z",
               "EditorCaption": ""
             }
           ]
