@@ -9,8 +9,8 @@
             <h1 class="display-4 HomePageDisplay-div-text">This week is our biggest sale yet</h1>
             <span>Large Discounts</span>
             <div class="">
-                <button class="btn-HomePage">Shop Now</button>
-                <button class="btn-HomePage btn-HomePage-meta1">Shop Now</button>
+                <button class="btn-HomePage" onclick="navigateTo('/Home/Categories')">Shop Now</button>
+                <button class="btn-HomePage btn-HomePage-meta1" onclick="navigateTo('/Home/Categories')" >Shop Now</button>
             </div>
         </div>
         <div class="HomePageDisplay-div2">
@@ -18,7 +18,30 @@
         </div>
     </div>
 
+    <div class="OurProductsDiv">
+        <div class="OurProduct-title-container">
+            <h1 class="OurProducts-title">Our Products</h1>
+        </div>
+        <div class="BestSellersDiv">
+            <div class="BestSellersDiv-container">
+                <h1>Bestsellers</h1>
+                <p>Our Most Sold Products This Month</p>
+            </div>
+            <button class="btn-HomePage ViewMore-btn">View More</button>
 
+        </div>
+    </div>
 
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <footer class="footer-div">
+        <div class="MediaBizzareLogo">
+            <img src="images/logo.png" alt="">
+        </div>
+    </footer>
+
+    <script>
+        function navigateTo(path){
+            window.location.href = path;
+        }
+    </script>
+
 </div>

@@ -22,3 +22,11 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.navbar-permenance{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
