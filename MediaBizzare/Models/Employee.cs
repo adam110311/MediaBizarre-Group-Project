@@ -7,7 +7,7 @@ namespace MediaBizzare.Models
         public int Id { get; set; }
 
         [Required]
-        public int? UserId { get; set; }
+        public int UserId { get; set; }
         public User? User { get; set; }
 
         [Required]
@@ -27,9 +27,9 @@ namespace MediaBizzare.Models
         [StringLength(30)]
         public string EmergencyPhone { get; set; } = string.Empty;
 
-        public string Role { get; set; } = string.Empty;
-
-        // optional inverse nav if this employee manages a department
         public Department? ManagedDepartment { get; set; }
+
+        public ICollection<EmployeeRole> EmployeeRoles { get; set; } = new List<EmployeeRole>();
+        public ICollection<Employee_Contract> Contracts { get; set; } = new List<Employee_Contract>();
     }
 }

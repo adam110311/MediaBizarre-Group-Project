@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace MediaBizzare.Models
+﻿namespace MediaBizzare.Models
 {
     public class EmployeeRole
     {

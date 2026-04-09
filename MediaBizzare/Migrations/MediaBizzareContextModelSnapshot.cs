@@ -30,37 +30,24 @@ namespace MediaBizzare.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("DepartmentId")
+                    b.Property<int>("DepartmentId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("MediaBizzare.Models.CategoryProduct", b =>
-                {
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("CategoryId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("categoryProducts");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Department", b =>
@@ -80,11 +67,13 @@ namespace MediaBizzare.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
 
                     b.HasKey("Id");
 
@@ -120,12 +109,7 @@ namespace MediaBizzare.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int?>("UserId")
-                        .IsRequired()
+                    b.Property<int>("UserId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -150,7 +134,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("employeeRoles");
+                    b.ToTable("EmployeeRoles");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Employee_Contract", b =>
@@ -185,8 +169,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeId")
-                        .IsUnique();
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("EmployeeContracts");
                 });
@@ -206,9 +189,15 @@ namespace MediaBizzare.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
+
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
 
                     b.HasKey("Id");
 
@@ -233,7 +222,8 @@ namespace MediaBizzare.Migrations
 
                     b.Property<string>("SKU")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<int>("Stock")
                         .HasColumnType("integer");
@@ -262,7 +252,8 @@ namespace MediaBizzare.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
@@ -335,28 +326,10 @@ namespace MediaBizzare.Migrations
                     b.HasOne("MediaBizzare.Models.Department", "Department")
                         .WithMany("Categories")
                         .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Department");
-                });
-
-            modelBuilder.Entity("MediaBizzare.Models.CategoryProduct", b =>
-                {
-                    b.HasOne("MediaBizzare.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MediaBizzare.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Department", b =>
@@ -391,13 +364,13 @@ namespace MediaBizzare.Migrations
             modelBuilder.Entity("MediaBizzare.Models.EmployeeRole", b =>
                 {
                     b.HasOne("MediaBizzare.Models.Employee", "Employee")
-                        .WithMany()
+                        .WithMany("EmployeeRoles")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MediaBizzare.Models.Role", "Role")
-                        .WithMany()
+                        .WithMany("EmployeeRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -410,8 +383,8 @@ namespace MediaBizzare.Migrations
             modelBuilder.Entity("MediaBizzare.Models.Employee_Contract", b =>
                 {
                     b.HasOne("MediaBizzare.Models.Employee", "Employee")
-                        .WithOne()
-                        .HasForeignKey("MediaBizzare.Models.Employee_Contract", "EmployeeId")
+                        .WithMany("Contracts")
+                        .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -421,9 +394,9 @@ namespace MediaBizzare.Migrations
             modelBuilder.Entity("MediaBizzare.Models.Product", b =>
                 {
                     b.HasOne("MediaBizzare.Models.Category", "Category")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
@@ -432,12 +405,17 @@ namespace MediaBizzare.Migrations
             modelBuilder.Entity("MediaBizzare.Models.ProductVariations", b =>
                 {
                     b.HasOne("MediaBizzare.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("Variations")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("MediaBizzare.Models.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Department", b =>
@@ -449,7 +427,21 @@ namespace MediaBizzare.Migrations
 
             modelBuilder.Entity("MediaBizzare.Models.Employee", b =>
                 {
+                    b.Navigation("Contracts");
+
+                    b.Navigation("EmployeeRoles");
+
                     b.Navigation("ManagedDepartment");
+                });
+
+            modelBuilder.Entity("MediaBizzare.Models.Product", b =>
+                {
+                    b.Navigation("Variations");
+                });
+
+            modelBuilder.Entity("MediaBizzare.Models.Role", b =>
+                {
+                    b.Navigation("EmployeeRoles");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.User", b =>

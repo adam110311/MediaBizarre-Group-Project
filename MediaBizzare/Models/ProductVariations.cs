@@ -6,10 +6,12 @@ namespace MediaBizzare.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public int ProductId { get; set; }
         public Product? Product { get; set; }
 
         [Required]
+        [StringLength(100)]
         public string SKU { get; set; } = string.Empty;
 
         [Required]

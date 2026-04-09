@@ -6,6 +6,7 @@ namespace MediaBizzare.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public int EmployeeId { get; set; }
         public Employee? Employee { get; set; }
 

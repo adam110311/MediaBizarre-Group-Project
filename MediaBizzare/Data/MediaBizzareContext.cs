@@ -15,9 +15,8 @@ namespace MediaBizzare.Data
         public DbSet<Department> Departments { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<CategoryProduct> categoryProducts { get; set; }
-        public DbSet<EmployeeRole> employeeRoles { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<EmployeeRole> EmployeeRoles { get; set; }
         public DbSet<ProductVariations> ProductVariations { get; set; }
         public DbSet<Employee_Contract> EmployeeContracts { get; set; }
 
@@ -25,7 +24,7 @@ namespace MediaBizzare.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // User <-> Employee (optional on User side, required on Employee side)
+            // User <-> Employee
             modelBuilder.Entity<Employee>()
                 .HasOne(e => e.User)
                 .WithOne(u => u.Employee)
@@ -48,7 +47,7 @@ namespace MediaBizzare.Data
                 .HasOne(c => c.Department)
                 .WithMany(d => d.Categories)
                 .HasForeignKey(c => c.DepartmentId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Department -> Manager(Employee)
             modelBuilder.Entity<Department>()
@@ -61,64 +60,46 @@ namespace MediaBizzare.Data
                 .HasIndex(d => d.ManagerId)
                 .IsUnique();
 
-            // CategoryProduct join table: Category <-> Product
-            modelBuilder.Entity<CategoryProduct>(entity =>
-            {
-                entity.HasKey("CategoryId", "ProductId");
+            // Category -> Products
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Category)
+                .WithMany(c => c.Products)
+                .HasForeignKey(p => p.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-                entity.HasOne(cp => cp.Category)
-                    .WithMany()
-                    .HasForeignKey("CategoryId")
-                    .OnDelete(DeleteBehavior.Cascade);
+            // Product -> ProductVariations
+            modelBuilder.Entity<ProductVariations>()
+                .HasOne(pv => pv.Product)
+                .WithMany(p => p.Variations)
+                .HasForeignKey(pv => pv.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-                entity.HasOne(cp => cp.Product)
-                    .WithMany()
-                    .HasForeignKey("ProductId")
-                    .OnDelete(DeleteBehavior.Cascade);
-            });
+            modelBuilder.Entity<ProductVariations>()
+                .HasIndex(pv => pv.SKU)
+                .IsUnique();
 
-            // EmployeeRole join table: Employee <-> Role
-            modelBuilder.Entity<EmployeeRole>(entity =>
-            {
-                entity.HasKey("EmployeeId", "RoleId");
+            // Employee <-> Role many-to-many through EmployeeRole
+            modelBuilder.Entity<EmployeeRole>()
+                .HasKey(er => new { er.EmployeeId, er.RoleId });
 
-                entity.HasOne(er => er.Employee)
-                    .WithMany()
-                    .HasForeignKey("EmployeeId")
-                    .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<EmployeeRole>()
+                .HasOne(er => er.Employee)
+                .WithMany(e => e.EmployeeRoles)
+                .HasForeignKey(er => er.EmployeeId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-                entity.HasOne(er => er.Role)
-                    .WithMany()
-                    .HasForeignKey("RoleId")
-                    .OnDelete(DeleteBehavior.Cascade);
-            });
+            modelBuilder.Entity<EmployeeRole>()
+                .HasOne(er => er.Role)
+                .WithMany(r => r.EmployeeRoles)
+                .HasForeignKey(er => er.RoleId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-            // Product -> ProductVariations (one-to-many)
-            modelBuilder.Entity<ProductVariations>(entity =>
-            {
-                entity.HasOne(pv => pv.Product)
-                    .WithMany()
-                    .HasForeignKey("ProductId")
-                    .OnDelete(DeleteBehavior.Cascade);
-
-                entity.Property(pv => pv.SKU)
-                    .IsRequired();
-
-                entity.HasIndex(pv => pv.SKU)
-                    .IsUnique();
-            });
-
-            // Employee -> Employee_Contract
-            modelBuilder.Entity<Employee_Contract>(entity =>
-            {
-                entity.HasOne(ec => ec.Employee)
-                    .WithOne()
-                    .HasForeignKey<Employee_Contract>("EmployeeId")
-                    .OnDelete(DeleteBehavior.Cascade);
-
-                entity.HasIndex("EmployeeId")
-                    .IsUnique();
-            });
+            // Employee -> Contracts (one-to-many)
+            modelBuilder.Entity<Employee_Contract>()
+                .HasOne(ec => ec.Employee)
+                .WithMany(e => e.Contracts)
+                .HasForeignKey(ec => ec.EmployeeId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
