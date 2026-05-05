@@ -1,16 +1,22 @@
-﻿using MediaBizzare.Models;
+using MediaBizzare.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace MediaBizzare.Data
 {
-    public class MediaBizzareContext : DbContext
+    // IdentityDbContext<TUser, TRole, TKey> — using int keys so FKs from Employee.UserId etc. keep working.
+    // This pulls in tables: AspNetUsers, AspNetRoles, AspNetUserRoles, AspNetUserClaims,
+    // AspNetUserLogins, AspNetUserTokens, AspNetRoleClaims.
+    public class MediaBizzareContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
     {
         public MediaBizzareContext(DbContextOptions<MediaBizzareContext> options)
             : base(options)
         {
         }
 
-        public DbSet<User> User { get; set; }
+        // Note: there is NO DbSet<ApplicationUser> here — IdentityDbContext provides `Users` automatically.
+        // The old `DbSet<User> User` is gone; references to `_context.User` must become `_context.Users`.
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -22,9 +28,10 @@ namespace MediaBizzare.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // IMPORTANT: base call required for IdentityDbContext to configure its tables.
             base.OnModelCreating(modelBuilder);
 
-            // User <-> Employee
+            // ApplicationUser <-> Employee (one-to-one, optional)
             modelBuilder.Entity<Employee>()
                 .HasOne(e => e.User)
                 .WithOne(u => u.Employee)
@@ -78,7 +85,7 @@ namespace MediaBizzare.Data
                 .HasIndex(pv => pv.SKU)
                 .IsUnique();
 
-            // Employee <-> Role many-to-many through EmployeeRole
+            // Employee <-> Role many-to-many through EmployeeRole (this is the HR Role, NOT Identity role)
             modelBuilder.Entity<EmployeeRole>()
                 .HasKey(er => new { er.EmployeeId, er.RoleId });
 

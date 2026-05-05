@@ -1,17 +1,25 @@
-﻿using MediaBizzare.Models;
+using MediaBizzare.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MediaBizzare.Data
 {
     public static class DbSeeder
     {
-        public static void Seed(MediaBizzareContext context)
+        // Async because UserManager / RoleManager methods are async.
+        public static async Task SeedAsync(
+            MediaBizzareContext context,
+            UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole<int>> roleManager)
         {
-            context.Database.Migrate();
+            await context.Database.MigrateAsync();
 
-            SeedUsers(context);
+            await SeedIdentityRolesAsync(roleManager);
+            await SeedUsersAsync(context, userManager);
+
             SeedDepartments(context);
             SeedCategories(context);
             SeedProducts(context);
@@ -23,60 +31,86 @@ namespace MediaBizzare.Data
             AssignDepartmentManagers(context);
         }
 
-        private static void SeedUsers(MediaBizzareContext context)
+        // Identity roles ("Admin", "Customer") — these are the AUTH roles.
+        // Distinct from the existing Role/EmployeeRole entities which are HR job roles.
+        private static async Task SeedIdentityRolesAsync(RoleManager<IdentityRole<int>> roleManager)
         {
-            if (context.User.Any())
+            foreach (var roleName in new[] { "Admin", "Customer" })
+            {
+                if (!await roleManager.RoleExistsAsync(roleName))
+                {
+                    await roleManager.CreateAsync(new IdentityRole<int>(roleName));
+                }
+            }
+        }
+
+        // Seeds 3 Identity users (the same john/jane/mark from before).
+        // All three are seeded as Admins because they're staff in this dataset.
+        // Default password for all seeded users: ChangeMe123!  -> change in production.
+        private static async Task SeedUsersAsync(MediaBizzareContext context, UserManager<ApplicationUser> userManager)
+        {
+            if (context.Users.Any())
                 return;
 
-            context.User.AddRange(
-                new User
+            var seedUsers = new (ApplicationUser user, string password)[]
+            {
+                (new ApplicationUser
                 {
-                    username = "jdoe",
-                    name = "John",
-                    surname = "Doe",
-                    phone = "0611111111",
-                    email = "john@example.com",
-                    bank_account = "NL00BANK0123456789",
-                    password_hash = "hash1",
-                    street = "Main Street",
-                    street_number = "1",
-                    postal_code = "1234AB",
-                    city = "Oosterhout",
-                    country = "Netherlands"
-                },
-                new User
+                    UserName = "jdoe",
+                    Email = "john@example.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0611111111",
+                    Name = "John",
+                    Surname = "Doe",
+                    BankAccount = "NL00BANK0123456789",
+                    Street = "Main Street",
+                    StreetNumber = "1",
+                    PostalCode = "1234AB",
+                    City = "Oosterhout",
+                    Country = "Netherlands"
+                }, "ChangeMe123!"),
+                (new ApplicationUser
                 {
-                    username = "janed",
-                    name = "Jane",
-                    surname = "Doe",
-                    phone = "0622222222",
-                    email = "jane@example.com",
-                    bank_account = "NL00BANK9876543210",
-                    password_hash = "hash2",
-                    street = "Second Street",
-                    street_number = "2",
-                    postal_code = "5678CD",
-                    city = "Breda",
-                    country = "Netherlands"
-                },
-                new User
+                    UserName = "janed",
+                    Email = "jane@example.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0622222222",
+                    Name = "Jane",
+                    Surname = "Doe",
+                    BankAccount = "NL00BANK9876543210",
+                    Street = "Second Street",
+                    StreetNumber = "2",
+                    PostalCode = "5678CD",
+                    City = "Breda",
+                    Country = "Netherlands"
+                }, "ChangeMe123!"),
+                (new ApplicationUser
                 {
-                    username = "mdoe",
-                    name = "Mark",
-                    surname = "Doe",
-                    phone = "0633333333",
-                    email = "mark@example.com",
-                    bank_account = "NL00BANK1234567890",
-                    password_hash = "hash3",
-                    street = "Third Street",
-                    street_number = "3",
-                    postal_code = "9012EF",
-                    city = "Tilburg",
-                    country = "Netherlands"
-                }
-            );
+                    UserName = "mdoe",
+                    Email = "mark@example.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0633333333",
+                    Name = "Mark",
+                    Surname = "Doe",
+                    BankAccount = "NL00BANK1234567890",
+                    Street = "Third Street",
+                    StreetNumber = "3",
+                    PostalCode = "9012EF",
+                    City = "Tilburg",
+                    Country = "Netherlands"
+                }, "ChangeMe123!")
+            };
 
-            context.SaveChanges();
+            foreach (var (user, password) in seedUsers)
+            {
+                var result = await userManager.CreateAsync(user, password);
+                if (!result.Succeeded)
+                {
+                    var errors = string.Join("; ", result.Errors.Select(e => e.Description));
+                    throw new Exception($"Seeding user {user.UserName} failed: {errors}");
+                }
+                await userManager.AddToRoleAsync(user, "Admin");
+            }
         }
 
         private static void SeedDepartments(MediaBizzareContext context)
@@ -221,9 +255,10 @@ namespace MediaBizzare.Data
             var electronicsDept = context.Departments.First(d => d.Slug == "electronics");
             var computersDept = context.Departments.First(d => d.Slug == "computers");
 
-            var johnUser = context.User.First(u => u.username == "jdoe");
-            var janeUser = context.User.First(u => u.username == "janed");
-            var markUser = context.User.First(u => u.username == "mdoe");
+            // UserName replaces the old `username` field
+            var johnUser = context.Users.First(u => u.UserName == "jdoe");
+            var janeUser = context.Users.First(u => u.UserName == "janed");
+            var markUser = context.Users.First(u => u.UserName == "mdoe");
 
             context.Employees.AddRange(
                 new Employee
@@ -255,6 +290,7 @@ namespace MediaBizzare.Data
             context.SaveChanges();
         }
 
+        // HR Roles (job roles), distinct from Identity Admin/Customer roles
         private static void SeedRoles(MediaBizzareContext context)
         {
             if (context.Roles.Any())
@@ -284,9 +320,9 @@ namespace MediaBizzare.Data
             var managerRole = context.Roles.First(r => r.Name == "Manager");
             var salesRole = context.Roles.First(r => r.Name == "Sales");
 
-            var johnUserId = context.User.First(u => u.username == "jdoe").Id;
-            var janeUserId = context.User.First(u => u.username == "janed").Id;
-            var markUserId = context.User.First(u => u.username == "mdoe").Id;
+            var johnUserId = context.Users.First(u => u.UserName == "jdoe").Id;
+            var janeUserId = context.Users.First(u => u.UserName == "janed").Id;
+            var markUserId = context.Users.First(u => u.UserName == "mdoe").Id;
 
             var johnEmployee = context.Employees.First(e => e.UserId == johnUserId);
             var janeEmployee = context.Employees.First(e => e.UserId == janeUserId);
@@ -318,9 +354,9 @@ namespace MediaBizzare.Data
             if (context.EmployeeContracts.Any())
                 return;
 
-            var johnUserId = context.User.First(u => u.username == "jdoe").Id;
-            var janeUserId = context.User.First(u => u.username == "janed").Id;
-            var markUserId = context.User.First(u => u.username == "mdoe").Id;
+            var johnUserId = context.Users.First(u => u.UserName == "jdoe").Id;
+            var janeUserId = context.Users.First(u => u.UserName == "janed").Id;
+            var markUserId = context.Users.First(u => u.UserName == "mdoe").Id;
 
             var johnEmployee = context.Employees.First(e => e.UserId == johnUserId);
             var janeEmployee = context.Employees.First(e => e.UserId == janeUserId);
@@ -332,7 +368,7 @@ namespace MediaBizzare.Data
                     EmployeeId = johnEmployee.Id,
                     signature_date = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc),
                     start_date = DateTime.SpecifyKind(new DateTime(2025, 1, 15), DateTimeKind.Utc),
-                    end_date = DateTime.SpecifyKind(new DateTime(2026, 1, 15), DateTimeKind.Utc ),
+                    end_date = DateTime.SpecifyKind(new DateTime(2026, 1, 15), DateTimeKind.Utc),
                     salary = 3500,
                     hours_per_week = 40,
                     contract_type = "Full-time"
@@ -342,7 +378,7 @@ namespace MediaBizzare.Data
                     EmployeeId = janeEmployee.Id,
                     signature_date = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc),
                     start_date = DateTime.SpecifyKind(new DateTime(2025, 1, 15), DateTimeKind.Utc),
-                    end_date = DateTime.SpecifyKind(new DateTime(2026, 1, 15), DateTimeKind.Utc ),
+                    end_date = DateTime.SpecifyKind(new DateTime(2026, 1, 15), DateTimeKind.Utc),
                     salary = 3500,
                     hours_per_week = 40,
                     contract_type = "Full-time"
@@ -367,8 +403,8 @@ namespace MediaBizzare.Data
             var electronicsDept = context.Departments.First(d => d.Slug == "electronics");
             var computersDept = context.Departments.First(d => d.Slug == "computers");
 
-            var johnUserId = context.User.First(u => u.username == "jdoe").Id;
-            var janeUserId = context.User.First(u => u.username == "janed").Id;
+            var johnUserId = context.Users.First(u => u.UserName == "jdoe").Id;
+            var janeUserId = context.Users.First(u => u.UserName == "janed").Id;
 
             var johnEmployee = context.Employees.First(e => e.UserId == johnUserId);
             var janeEmployee = context.Employees.First(e => e.UserId == janeUserId);

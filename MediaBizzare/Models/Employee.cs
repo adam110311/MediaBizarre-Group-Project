@@ -8,7 +8,7 @@ namespace MediaBizzare.Models
 
         [Required]
         public int UserId { get; set; }
-        public User? User { get; set; }
+        public ApplicationUser? User { get; set; }
 
         [Required]
         public int DepartmentId { get; set; }

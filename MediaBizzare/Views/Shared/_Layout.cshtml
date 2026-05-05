@@ -10,7 +10,8 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        @* Customer navbar (top tier) — visible to everyone *@
+        <nav class="navbar-permanence navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MediaBizzare</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,18 +21,59 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Categories">All categories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CompLap">Computer & Laptop</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Privacy">Products</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="PhoneWear">Smartphone & Wearables</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="TVaudio">TV & audio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="HA">Household Appliances</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="GameDivert">Game & Entertainment</a>
                         </li>
                     </ul>
+                    @* Login partial sits at the right end of the customer bar *@
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
+
+        @* Admin navbar (second tier) — only rendered if User is in Admin role *@
+        @if (User.IsInRole("Admin"))
+        {
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
+                <div class="container-fluid">
+                    <span class="navbar-text text-warning fw-bold me-3">Admin</span>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavCollapse"
+                            aria-controls="adminNavCollapse" aria-expanded="false" aria-label="Toggle admin navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div id="adminNavCollapse" class="collapse navbar-collapse">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link text-white" asp-controller="Departments" asp-action="Index">Departments</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-controller="Categories" asp-action="Index">Categories</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-controller="Products" asp-action="Index">Products</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-controller="ProductVariations" asp-action="Index">Product Variations</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-controller="Employees" asp-action="Index">Employees</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-controller="Employee_Contract" asp-action="Index">Contracts</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-controller="Roles" asp-action="Index">Job Roles</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-controller="Users" asp-action="Index">Users</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        }
+        else
+        {
+            <div class="mb-3"></div>
+        }
     </header>
     <div class="container">
         <main role="main" class="pb-3">

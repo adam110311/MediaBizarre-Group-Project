@@ -1,95 +1,31 @@
-﻿@model IEnumerable<MediaBizzare.Models.User>
-
+@model IEnumerable<MediaBizzare.Models.ApplicationUser>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Users";
 }
 
-<h1>Index</h1>
+<h1>Users</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.surname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.bank_account)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.password_hash)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.street)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.street_number)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.postal_code)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.city)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.country)
-            </th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Phone</th>
+            <th>City</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.surname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.bank_account)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.password_hash)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.street)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.street_number)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.postal_code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.city)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.country)
-            </td>
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            <td>@item.Name</td>
+            <td>@item.Surname</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.City</td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
