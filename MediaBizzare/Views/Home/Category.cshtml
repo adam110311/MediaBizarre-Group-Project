@@ -1,0 +1,52 @@
+@model CategoryPageVM
+@{
+    ViewData["Title"] = Model.CategoryName;
+}
+
+<section class="Container">
+    <nav class="Breadcrumb">
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <span class="Breadcrumb-sep">›</span>
+        <a asp-controller="Home" asp-action="Categories">All categories</a>
+        <span class="Breadcrumb-sep">›</span>
+        <span class="Breadcrumb-current">@Model.CategoryName</span>
+    </nav>
+</section>
+
+<section class="CategoryPage">
+    <aside class="CategoryPage-filters">
+        <h3>Filter by</h3>
+        <ul>
+            @foreach (string filter in Model.Filters)
+            {
+                <li>
+                    <label>
+                        <input type="checkbox" />
+                        <span>@filter</span>
+                    </label>
+                </li>
+            }
+        </ul>
+    </aside>
+
+    <div>
+        <div class="CategoryPage-head">
+            <h1>@Model.CategoryName</h1>
+            <span class="TextMuted">@Model.Products.Count products</span>
+        </div>
+
+        @if (Model.Products.Count == 0)
+        {
+            <div class="Cart-empty">No products yet. Check back soon.</div>
+        }
+        else
+        {
+            <div class="ProductGrid">
+                @foreach (ProductCardVM p in Model.Products)
+                {
+                    <partial name="_ProductCard" model="p" />
+                }
+            </div>
+        }
+    </div>
+</section>

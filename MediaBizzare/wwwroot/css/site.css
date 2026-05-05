@@ -1,3 +1,314 @@
+<<<<<<< HEAD
+/* Media Bazar - base reset + shared pieces (buttons, chips, breadcrumbs) */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: #0F172A;
+    background: #F5F5F5;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+h1, h2, h3, h4 {
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: #0F172A;
+}
+
+p {
+    margin: 0 0 1rem 0;
+}
+
+/* Container */
+
+.Container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Buttons */
+
+.Btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 12px 28px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1;
+    user-select: none;
+}
+
+.Btn:active {
+    transform: scale(0.98);
+}
+
+.Btn-primary {
+    background: #163251;
+    color: #fff;
+}
+
+.Btn-primary:hover {
+    background: #1e4372;
+    color: #fff;
+}
+
+.Btn-accent {
+    background: #F58220;
+    color: #fff;
+}
+
+.Btn-accent:hover {
+    background: #f69642;
+    color: #fff;
+}
+
+.Btn-soft {
+    background: #9AC8F3;
+    color: #163251;
+}
+
+.Btn-soft:hover {
+    background: #b6d7f7;
+    color: #163251;
+}
+
+.Btn-outline {
+    background: transparent;
+    border-color: #163251;
+    color: #163251;
+}
+
+.Btn-outline:hover {
+    background: #163251;
+    color: #fff;
+}
+
+.Btn-ghost {
+    background: transparent;
+    color: #163251;
+    padding: 10px 16px;
+}
+
+.Btn-ghost:hover {
+    background: #eef2f6;
+}
+
+.Btn-icon {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 12px;
+    background: #163251;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.Btn-icon:hover {
+    background: #1e4372;
+    color: #fff;
+}
+
+.Btn-icon-accent {
+    background: #F58220;
+}
+
+.Btn-icon-accent:hover {
+    background: #f69642;
+}
+
+/* Chips (variants, filters) */
+
+.Chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1.5px solid #163251;
+    color: #163251;
+    background: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.Chip:hover {
+    background: #163251;
+    color: #fff;
+}
+
+.Chip-active {
+    background: #163251;
+    color: #fff;
+}
+
+.Chip-muted {
+    border-color: #E5E7EB;
+    color: #64748B;
+}
+
+/* Save pill (orange badge on product cards) */
+
+.SavePill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #FCE3CE;
+    color: #F58220;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* Breadcrumbs */
+
+.Breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #64748B;
+    padding: 24px 0 16px;
+}
+
+.Breadcrumb a {
+    color: #64748B;
+}
+
+.Breadcrumb a:hover {
+    color: #163251;
+}
+
+.Breadcrumb-sep {
+    font-size: 12px;
+    color: #64748B;
+}
+
+.Breadcrumb-current {
+    color: #0F172A;
+    font-weight: 600;
+}
+
+/* Star rating */
+
+.Stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    color: #F4B400;
+}
+
+.Stars svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Small text helpers */
+
+.TextMuted {
+    color: #64748B;
+}
+
+.TextSoft {
+    color: #475569;
+}
+
+.TextStrike {
+    text-decoration: line-through;
+    color: #64748B;
+    font-weight: 500;
+}
+
+/* Section spacing */
+
+.Section {
+    padding: 64px 0;
+}
+
+.Section-small {
+    padding: 32px 0;
+}
+
+.Section-title {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+/* Carousel (bestsellers strip) */
+
+.Carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(240px, 1fr);
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+}
+
+.Carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.Carousel > * {
+    scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+    .Section {
+        padding: 40px 0;
+    }
+
+    .Section-title {
+        font-size: 24px;
+    }
+}
+=======
 html {
   font-size: 14px;
 }
@@ -30,3 +341,4 @@ body {
   width: 100%;
   z-index: 1000;
 }
+>>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62

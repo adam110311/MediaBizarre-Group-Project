@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+@model HomeIndexVM
+@{
+    ViewData["Title"] = "All categories";
+}
+
+<section class="Section">
+    <div class="Container">
+        <nav class="Breadcrumb">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+            <span class="Breadcrumb-sep">›</span>
+            <span class="Breadcrumb-current">All categories</span>
+        </nav>
+        <h1 class="Section-title" style="text-align:left;">Shop by category</h1>
+    </div>
+    <div class="CatGrid">
+        @foreach (CategoryTileVM tile in Model.Categories)
+        {
+            <partial name="_CategoryTile" model="tile" />
+        }
+    </div>
+</section>
+=======
 @{
     ViewData["Title"] = "About Page";
 }
@@ -6,3 +29,4 @@
 <div class="text-center">
     <h2> My Son</h2>
 </div>
+>>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62

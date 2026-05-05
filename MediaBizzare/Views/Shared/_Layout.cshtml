@@ -1,8 +1,157 @@
+<<<<<<< HEAD
+@{
+    string currentAction = "";
+    if (ViewContext.RouteData.Values["action"] != null)
+    {
+        currentAction = ViewContext.RouteData.Values["action"].ToString();
+    }
+}
+<!DOCTYPE html>
+=======
 ﻿<!DOCTYPE html>
+>>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
+    <title>@ViewData["Title"] - Media Bazar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/app.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="Header">
+        <div class="Header-top">
+            <a class="Header-brand" asp-controller="Home" asp-action="Index">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="8" cy="21" r="1"></circle>
+                    <circle cx="19" cy="21" r="1"></circle>
+                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+                </svg>
+                <span>Media Bazar</span>
+            </a>
+
+            <form class="Header-search" onsubmit="event.preventDefault();">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="search" placeholder="What are you looking for today?" />
+            </form>
+
+            <div class="Header-actions">
+                <a href="#">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="10" r="3"></circle>
+                        <path d="M6.3 19.1a8 8 0 0 1 11.4 0"></path>
+                    </svg>
+                    <span>Account</span>
+                </a>
+                <a asp-controller="Home" asp-action="Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="8" cy="21" r="1"></circle>
+                        <circle cx="19" cy="21" r="1"></circle>
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+                    </svg>
+                    <span>Cart</span>
+                    <span class="CartBadge" id="cartBadge">0</span>
+                </a>
+                <button type="button" class="Header-menuToggle" id="menuToggle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <nav class="SubNav">
+            <div class="SubNav-inner">
+                <a class="SubNav-allcats" asp-controller="Home" asp-action="Categories">
+                    <span>All categories</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </a>
+                <ul class="SubNav-links" id="navLinks">
+                    <li>
+                        <a class="@(currentAction == "CompLap" ? "SubNav-links-active" : "")" asp-controller="Home" asp-action="CompLap">Computer &amp; laptop</a>
+                    </li>
+                    <li>
+                        <a class="@(currentAction == "PhoneWear" ? "SubNav-links-active" : "")" asp-controller="Home" asp-action="PhoneWear">Smartphone &amp; wearables</a>
+                    </li>
+                    <li>
+                        <a class="@(currentAction == "TVaudio" ? "SubNav-links-active" : "")" asp-controller="Home" asp-action="TVaudio">TV &amp; audio</a>
+                    </li>
+                    <li>
+                        <a class="@(currentAction == "HA" ? "SubNav-links-active" : "")" asp-controller="Home" asp-action="HA">Household appliances</a>
+                    </li>
+                    <li>
+                        <a class="@(currentAction == "GameDivert" ? "SubNav-links-active" : "")" asp-controller="Home" asp-action="GameDivert">Game &amp; entertainment</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="Footer">
+        <div class="Footer-grid">
+            <div class="Footer-brand-col">
+                <div class="Footer-brand">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="8" cy="21" r="1"></circle>
+                        <circle cx="19" cy="21" r="1"></circle>
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+                    </svg>
+                    <span>Media Bazar</span>
+                </div>
+                <p class="Footer-contact">Contact:</p>
+                <a class="Footer-contact-link" href="tel:18001234567">1800 123 4567</a>
+                <a class="Footer-contact-link" href="mailto:info@mediabazar.com">info@mediabazar.com</a>
+                <div class="Footer-socials">
+                    <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 3h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+                    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-4.73-4.73A4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                    <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3zm-1.5-11.3A1.7 1.7 0 1 1 8.2 6a1.7 1.7 0 0 1-1.7 1.7zM19 19h-3v-5.6c0-3.4-4-3.1-4 0V19h-3V9h3v1.8c1.4-2.6 7-2.8 7 2.5z"/></svg></a>
+                    <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.1s-.2-1.5-.9-2.2c-.8-.9-1.8-.9-2.3-1C16.5 3.6 12 3.6 12 3.6s-4.5 0-7.8.3c-.5.1-1.4.1-2.3 1C1.2 5.6 1 7.1 1 7.1S.8 9 .8 10.8v1.4c0 1.8.2 3.7.2 3.7s.2 1.5.9 2.2c.9.9 2 .9 2.5 1 1.8.2 7.6.3 7.6.3s4.5 0 7.8-.3c.5-.1 1.5-.1 2.3-1 .7-.7.9-2.2.9-2.2s.2-1.9.2-3.7v-1.4C23.2 9 23 7.1 23 7.1zM9.7 14.6V8.9L15.5 11.8z"/></svg></a>
+                </div>
+            </div>
+
+            <div class="Footer-links">
+                <a href="#">Link One</a>
+                <a href="#">Link Two</a>
+                <a href="#">Link Three</a>
+                <a href="#">Link Four</a>
+                <a href="#">Link Five</a>
+            </div>
+            <div class="Footer-links">
+                <a href="#">Link Six</a>
+                <a href="#">Link Seven</a>
+                <a href="#">Link Eight</a>
+                <a href="#">Link Nine</a>
+                <a href="#">Link Ten</a>
+            </div>
+        </div>
+        <div class="Footer-bottom">
+            <span>&copy; 2026 Media Bazar | All rights reserved.</span>
+            <div>
+                <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+=======
     <title>@ViewData["Title"] - MediaBizzare</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -54,6 +203,7 @@
             &copy; 2026 - MediaBizzare - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+>>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

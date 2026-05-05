@@ -1,3 +1,70 @@
+<<<<<<< HEAD
+@model HomeIndexVM
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="Hero">
+    <div class="Hero-inner">
+        <div class="Hero-copy">
+            <h1>This week is our biggest sale yet</h1>
+            <p>Large discounts</p>
+            <div class="Hero-ctas">
+                <a class="Btn Btn-primary" asp-controller="Home" asp-action="Categories">Shop now</a>
+                <a class="Btn Btn-accent" asp-controller="Home" asp-action="Categories">Shop now</a>
+            </div>
+        </div>
+        <div class="Hero-art">
+            <div class="Hero-art-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12" y2="18"></line>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="Section">
+    <h2 class="Section-title">Our products</h2>
+    <div class="CatGrid">
+        @foreach (CategoryTileVM tile in Model.Categories)
+        {
+            <partial name="_CategoryTile" model="tile" />
+        }
+    </div>
+</section>
+
+<section class="Bestsellers">
+    <div class="Bestsellers-head">
+        <div>
+            <h2>Bestsellers</h2>
+            <p>Our most sold products this month</p>
+        </div>
+        <a class="Btn Btn-soft" asp-controller="Home" asp-action="Categories">View more</a>
+    </div>
+    <div class="Bestsellers-carousel">
+        <div class="Carousel" id="bestCarousel">
+            @foreach (ProductCardVM p in Model.Bestsellers)
+            {
+                <partial name="_ProductCard" model="p" />
+            }
+        </div>
+        <div class="Bestsellers-controls">
+            <button type="button" id="bestPrev">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button type="button" id="bestNext">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
+=======
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
@@ -45,3 +112,4 @@
     </script>
 
 </div>
+>>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62

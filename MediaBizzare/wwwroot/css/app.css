@@ -1,3 +1,580 @@
+<<<<<<< HEAD
+/* Media Bazar - page styles (home, categories, category page, product, cart) */
+
+/* ---------- Homepage hero ---------- */
+
+.Hero {
+    max-width: 1280px;
+    margin: 32px auto 0;
+    padding: 0 24px;
+}
+
+.Hero-inner {
+    position: relative;
+    background: #9AC8F3;
+    border-radius: 24px;
+    overflow: hidden;
+    min-height: 340px;
+    padding: 48px 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 32px;
+}
+
+.Hero-inner::after {
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: -30%;
+    width: 70%;
+    height: 140%;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.Hero-copy {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    max-width: 520px;
+}
+
+.Hero-copy h1 {
+    font-size: 44px;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.Hero-copy p {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 28px;
+    opacity: 0.95;
+}
+
+.Hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.Hero-art {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.Hero-art img {
+    max-height: 280px;
+}
+
+.Hero-art-placeholder {
+    width: 75%;
+    max-width: 360px;
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(22, 50, 81, 0.4);
+}
+
+.Hero-art-placeholder svg {
+    width: 60%;
+    height: 60%;
+}
+
+@media (max-width: 768px) {
+    .Hero-inner {
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+        min-height: 0;
+    }
+
+    .Hero-inner::after {
+        display: none;
+    }
+
+    .Hero-art {
+        justify-content: center;
+        margin-top: 16px;
+    }
+
+    .Hero-copy h1 {
+        font-size: 28px;
+    }
+}
+
+/* ---------- Our products tile grid ---------- */
+
+.CatGrid {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 960px) {
+    .CatGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .CatGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---------- Bestsellers band ---------- */
+
+.Bestsellers {
+    background: #163251;
+    color: #fff;
+    padding: 56px 0;
+    margin-top: 32px;
+}
+
+.Bestsellers-head {
+    max-width: 1280px;
+    margin: 0 auto 32px;
+    padding: 0 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.Bestsellers-head h2 {
+    color: #fff;
+    font-size: 36px;
+    margin: 0;
+}
+
+.Bestsellers-head p {
+    color: rgba(255, 255, 255, 0.78);
+    margin: 4px 0 0;
+}
+
+.Bestsellers-carousel {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.Bestsellers-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.Bestsellers-controls button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #9AC8F3;
+    color: #163251;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.Bestsellers-controls button:hover {
+    background: #b6d7f7;
+}
+
+.Bestsellers-controls svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ---------- Category page ---------- */
+
+.CategoryPage {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+}
+
+.CategoryPage-filters {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 20px;
+    align-self: start;
+    position: sticky;
+    top: 148px;
+}
+
+.CategoryPage-filters h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.CategoryPage-filters ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.CategoryPage-filters li {
+    padding: 6px 0;
+}
+
+.CategoryPage-filters label {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.CategoryPage-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.CategoryPage-head h1 {
+    font-size: 32px;
+    margin: 0;
+}
+
+.ProductGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 860px) {
+    .CategoryPage {
+        grid-template-columns: 1fr;
+    }
+
+    .CategoryPage-filters {
+        position: static;
+    }
+}
+
+/* ---------- Product detail ---------- */
+
+.ProductView {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.ProductView-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+}
+
+.ProductView-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ProductView-mainImage {
+    aspect-ratio: 1;
+    background: #E5E7EB;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9CA3AF;
+    overflow: hidden;
+}
+
+.ProductView-mainImage svg {
+    width: 30%;
+    height: 30%;
+}
+
+.ProductView-mainImage img {
+    object-fit: contain;
+    max-height: 80%;
+}
+
+.ProductView-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.ProductView-info h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.ProductView-price {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.ProductView-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #475569;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.ProductView-desc {
+    color: #475569;
+    margin-bottom: 24px;
+}
+
+.ProductView-variants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.ProductView-variant-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.Qty {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    background: #E5E7EB;
+    border-radius: 999px;
+    padding: 4px;
+}
+
+.Qty button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: #163251;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.Qty button:hover {
+    background: rgba(22, 50, 81, 0.08);
+}
+
+.Qty input {
+    width: 48px;
+    height: 36px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    color: #163251;
+    outline: none;
+}
+
+.ProductView-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.ProductView-cta-row .Btn {
+    flex: 1 1 260px;
+    padding: 14px 28px;
+}
+
+.ProductView-free {
+    color: #64748B;
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .ProductView-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .ProductView-info h1 {
+        font-size: 26px;
+    }
+}
+
+/* ---------- Cart ---------- */
+
+.Cart {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 32px;
+}
+
+.Cart h1 {
+    margin-bottom: 24px;
+}
+
+.Cart-list {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 8px 0;
+}
+
+.Cart-row {
+    display: grid;
+    grid-template-columns: 96px 1fr auto auto auto;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.Cart-row:last-child {
+    border-bottom: none;
+}
+
+.Cart-thumb {
+    width: 96px;
+    height: 96px;
+}
+
+.Cart-name {
+    font-weight: 600;
+    margin: 0 0 2px;
+}
+
+.Cart-variant {
+    color: #64748B;
+    font-size: 13px;
+}
+
+.Cart-remove {
+    background: transparent;
+    border: none;
+    color: #64748B;
+    cursor: pointer;
+}
+
+.Cart-remove:hover {
+    color: #DC2626;
+}
+
+.Cart-summary {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 24px;
+    align-self: start;
+    position: sticky;
+    top: 148px;
+}
+
+.Cart-summary h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.Cart-summary dl {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px 16px;
+    margin: 0 0 16px;
+}
+
+.Cart-summary dt {
+    color: #64748B;
+    font-size: 14px;
+}
+
+.Cart-summary dd {
+    margin: 0;
+    font-weight: 600;
+    text-align: right;
+}
+
+.Cart-total dt,
+.Cart-total dd {
+    font-size: 17px;
+    color: #0F172A;
+    padding-top: 10px;
+    border-top: 1px solid #E5E7EB;
+}
+
+.Cart-empty {
+    background: #fff;
+    border: 1px dashed #E5E7EB;
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+    color: #64748B;
+}
+
+@media (max-width: 860px) {
+    .Cart {
+        grid-template-columns: 1fr;
+    }
+
+    .Cart-summary {
+        position: static;
+    }
+
+    .Cart-row {
+        grid-template-columns: 72px 1fr auto;
+        gap: 12px;
+    }
+
+    .Cart-thumb {
+        width: 72px;
+        height: 72px;
+    }
+
+    .Cart-row .Qty,
+    .Cart-row .Cart-lineTotal {
+        grid-column: 2 / -1;
+    }
+}
+
+/* ---------- Privacy / simple doc page ---------- */
+
+.Doc {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+.Doc h1 {
+    margin-bottom: 16px;
+}
+
+.Doc p {
+    color: #475569;
+=======
 .HomePageLength{
     position: absolute;
     top:20vh;left:0%;
@@ -134,4 +711,5 @@
 .MediaBizzareLogo img{
     width: 100%;
     height: auto;
+>>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62
 }
