@@ -78,4 +78,5 @@ _[Ss]cripts
 *.dot[Cc]over
 /MediaBizzare/.vs/MediaBizzare
 /MediaBizzare/.vs
-
+FRONTEND*.md 
+*_MediaBazar.md
