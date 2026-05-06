@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-// Media Bazar - small frontend behaviours.
+﻿// Media Bazar - small frontend behaviours.
 // Mobile menu, cart count badge, variant chips, quantity steppers, carousel.
 
 var cartCount = 0;
@@ -128,9 +127,8 @@ if (bestCarousel != null && bestPrev != null && bestNext != null) {
 }
 
 updateCartBadge();
-=======
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+
+// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
->>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62

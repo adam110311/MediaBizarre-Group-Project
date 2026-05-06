@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 using System.Collections.Generic;
 using System.Diagnostics;
 using MediaBizzare.Models;
 using MediaBizzare.Models.ViewModels;
-=======
-using System.Diagnostics;
-using MediaBizzare.Models;
->>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62
 using Microsoft.AspNetCore.Mvc;
 
 namespace MediaBizzare.Controllers
@@ -20,7 +15,6 @@ namespace MediaBizzare.Controllers
             _logger = logger;
         }
 
-<<<<<<< HEAD
         // ---------- HOME ----------
 
         public IActionResult Index()
@@ -37,11 +31,6 @@ namespace MediaBizzare.Controllers
             vm.Bestsellers = best;
 
             return View(vm);
-=======
-        public IActionResult Index()
-        {
-            return View();
->>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62
         }
 
         public IActionResult Privacy()
@@ -49,7 +38,6 @@ namespace MediaBizzare.Controllers
             return View();
         }
 
-<<<<<<< HEAD
         // Old route kept so the existing nav link doesn't 404.
         public IActionResult HomePage()
         {
@@ -189,41 +177,10 @@ namespace MediaBizzare.Controllers
         }
 
         // ---------- ERROR ----------
-=======
-        public IActionResult HomePage()
-        {
-            return View();
-        }
-        public IActionResult Categories()
-        {
-            return View();
-        }
-        public IActionResult CompLap()
-        {
-            return View();
-        }
-        public IActionResult GameDivert()
-        {
-            return View();
-        }
-        public IActionResult HA()
-        {
-            return View();
-        }
-        public IActionResult PhoneWear()
-        {
-            return View();
-        }
-        public IActionResult TVaudio()
-        {
-            return View();
-        }
->>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-<<<<<<< HEAD
             string requestId;
             if (Activity.Current != null && Activity.Current.Id != null)
             {
@@ -329,9 +286,6 @@ namespace MediaBizzare.Controllers
                 items.Add(p);
             }
             return items;
-=======
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
->>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62
         }
     }
 }

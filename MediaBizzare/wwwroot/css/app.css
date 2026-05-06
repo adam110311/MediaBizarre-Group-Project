@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* Media Bazar - page styles (home, categories, category page, product, cart) */
 
 /* ---------- Homepage hero ---------- */
@@ -574,142 +573,148 @@
 
 .Doc p {
     color: #475569;
-=======
-.HomePageLength{
+= = = = = = = . HomePageLength {
     position: absolute;
-    top:20vh;left:0%;
+    top: 20vh;
+    left: 0%;
     height: 400vh;
     width: 100%;
     background-color: #F2F2F2;
 }
 
-.HomePageDisplay-div{
-    position: absolute;
-    top: 20vh; left: 5%;
-    height: 80vh; width: 90%;
-    background-color: #9AC8F3;
-    border-radius: 16px;
-    overflow: hidden;
-}
+    .HomePageDisplay-div {
+        position: absolute;
+        top: 20vh;
+        left: 5%;
+        height: 80vh;
+        width: 90%;
+        background-color: #9AC8F3;
+        border-radius: 16px;
+        overflow: hidden;
+    }
 
-.HomePageDisplay-div-container{
-    position: relative;
-    top: 25vh;
-    left: 2%;
-    width: 50%;
-}
+    .HomePageDisplay-div-container {
+        position: relative;
+        top: 25vh;
+        left: 2%;
+        width: 50%;
+    }
 
-.HomePageDisplay-div-text{
+    .HomePageDisplay-div-text {
 
-    color:#ffffff;
+        color: #ffffff;
 
-}
-
-
-.HomePageDisplay-div2{
-    position: absolute;
-    top: -10vh; left: 50%;
-    height: 100vh; width: 100%;
-    background-color: #fff;
-    border-radius: 500px;
-    border: solid #fff;
-}
-
-.btn-HomePage{
-    border: 1px solid #fff;
-    border-radius: 32px;
-    background-color: #1b6ec2;
-    color: #fff;
-    padding: 10px 24px;
-    font-size: 16px;
-    width: 23%;
-
-}
-
-.btn-HomePage:active{
-    transform: scale(0.96);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-
-}
-
-.btn-HomePage:hover{
-    background-color: #357bc2;
-}
-
-.btn-HomePage-meta1{
-    background-color: #F58220;
-}
-
-.btn-HomePage-meta1:hover{
-    background-color: #f69642;
-}
-
-.OurProductsDiv{
-    display: flex;
-    position: absolute;
-    top: 105vh;
-    background-color:#fff;
-    height: 170vh;
-    width: 100%;
-}
-
-.OurProduct-title{
+    }
 
 
-}
+    .HomePageDisplay-div2 {
+        position: absolute;
+        top: -10vh;
+        left: 50%;
+        height: 100vh;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 500px;
+        border: solid #fff;
+    }
 
-.OurProduct-title-container{
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    top: 11vh;
-}
+    .btn-HomePage {
+        border: 1px solid #fff;
+        border-radius: 32px;
+        background-color: #1b6ec2;
+        color: #fff;
+        padding: 10px 24px;
+        font-size: 16px;
+        width: 23%;
 
-.BestSellersDiv{
-    color:#fff;
-    display: flex;
-    position: absolute;
-    top: 170vh;
-    background-color:#163251;
-    height: 120vh;
-    width: 100%;
-}
+    }
 
-.BestSellersDiv-container{
+    .btn-HomePage:active {
+        transform: scale(0.96);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 
-    display: block;
-    position: absolute;
-    top: 19vh; left: 6%;
-    width: 30%;
-}
+    }
 
-.ViewMore-btn{
-    position: absolute;
-    top: 23vh; left: 85%;
-    height: 6vh;
-    width: 10%;
-    background-color: #9AC8F3;
-}
+    .btn-HomePage:hover {
+        background-color: #357bc2;
+    }
 
-.footer-div{
-    display: flex;
-    position: relative;
-    top: 350vh;
-    background-color: #F2F2F2;
-    min-height: 50vh;
-    width: 100%;
-    padding: 5vh;
-}
+    .btn-HomePage-meta1 {
+        background-color: #F58220;
+    }
 
-.MediaBizzareLogo{
-    height: 100px;
-    width: 150px;
-}
+    .btn-HomePage-meta1:hover {
+        background-color: #f69642;
+    }
 
-.MediaBizzareLogo img{
-    width: 100%;
-    height: auto;
->>>>>>> 3ef1d535815291eb7c0caca5d67c1bc3e9e52b62
+    .OurProductsDiv {
+        display: flex;
+        position: absolute;
+        top: 105vh;
+        background-color: #fff;
+        height: 170vh;
+        width: 100%;
+    }
+
+    .OurProduct-title {
+
+
+    }
+
+    .OurProduct-title-container {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        top: 11vh;
+    }
+
+    .BestSellersDiv {
+        color: #fff;
+        display: flex;
+        position: absolute;
+        top: 170vh;
+        background-color: #163251;
+        height: 120vh;
+        width: 100%;
+    }
+
+    .BestSellersDiv-container {
+
+        display: block;
+        position: absolute;
+        top: 19vh;
+        left: 6%;
+        width: 30%;
+    }
+
+    .ViewMore-btn {
+        position: absolute;
+        top: 23vh;
+        left: 85%;
+        height: 6vh;
+        width: 10%;
+        background-color: #9AC8F3;
+    }
+
+    .footer-div {
+        display: flex;
+        position: relative;
+        top: 350vh;
+        background-color: #F2F2F2;
+        min-height: 50vh;
+        width: 100%;
+        padding: 5vh;
+    }
+
+    .MediaBizzareLogo {
+        height: 100px;
+        width: 150px;
+    }
+
+    .MediaBizzareLogo img {
+        width: 100%;
+        height: auto;
+    }
 }
