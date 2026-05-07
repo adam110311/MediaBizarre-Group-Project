@@ -6,19 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace MediaBizzare.Controllers
 {
     [AllowAnonymous]
-    public class AccountController : Controller
+    public class AccountController(
+        UserManager<ApplicationUser> userManager,
+        SignInManager<ApplicationUser> signInManager)
+        : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-
-        public AccountController(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
-        {
-            _userManager = userManager;
-            _signInManager = signInManager;
-        }
-
         // ---------- LOGIN ----------
 
         [HttpGet]
@@ -35,8 +27,8 @@ namespace MediaBizzare.Controllers
                 return View(model);
 
             // Allow login by username OR email — find user first, then sign in by username.
-            var user = await _userManager.FindByNameAsync(model.UserNameOrEmail)
-                       ?? await _userManager.FindByEmailAsync(model.UserNameOrEmail);
+            var user = await userManager.FindByNameAsync(model.UserNameOrEmail)
+                       ?? await userManager.FindByEmailAsync(model.UserNameOrEmail);
 
             if (user is null)
             {
@@ -44,7 +36,7 @@ namespace MediaBizzare.Controllers
                 return View(model);
             }
 
-            var result = await _signInManager.PasswordSignInAsync(
+            var result = await signInManager.PasswordSignInAsync(
                 user.UserName!,
                 model.Password,
                 model.RememberMe,
@@ -91,7 +83,7 @@ namespace MediaBizzare.Controllers
                 Surname = model.Surname
             };
 
-            var result = await _userManager.CreateAsync(user, model.Password);
+            var result = await userManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
             {
@@ -101,8 +93,8 @@ namespace MediaBizzare.Controllers
             }
 
             // New users default to Customer (NOT Admin).
-            await _userManager.AddToRoleAsync(user, "Customer");
-            await _signInManager.SignInAsync(user, isPersistent: false);
+            await userManager.AddToRoleAsync(user, "Customer");
+            await signInManager.SignInAsync(user, isPersistent: false);
 
             return RedirectToAction("Index", "Home");
         }
@@ -113,7 +105,7 @@ namespace MediaBizzare.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
+            await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
 
