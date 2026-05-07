@@ -37,10 +37,10 @@ namespace MediaBizzare.Data
         {
             foreach (var roleName in new[] { "Admin", "Customer" })
             {
-                if (!await roleManager.RoleExistsAsync(roleName))
-                {
-                    await roleManager.CreateAsync(new IdentityRole<int>(roleName));
-                }
+                if (await roleManager.RoleExistsAsync(roleName))
+                    return;
+
+                await roleManager.CreateAsync(new IdentityRole<int>(roleName));
             }
         }
 
@@ -109,6 +109,7 @@ namespace MediaBizzare.Data
                     var errors = string.Join("; ", result.Errors.Select(e => e.Description));
                     throw new Exception($"Seeding user {user.UserName} failed: {errors}");
                 }
+
                 await userManager.AddToRoleAsync(user, "Admin");
             }
         }
