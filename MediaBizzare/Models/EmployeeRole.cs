@@ -2,7 +2,10 @@
 {
     public class EmployeeRole
     {
-        public int employeeId { get; set; }
-        public int roleId { get; set; }
+        public int EmployeeId { get; set; }
+        public Employee? Employee { get; set; }
+
+        public int RoleId { get; set; }
+        public Role? Role { get; set; }
     }
 }

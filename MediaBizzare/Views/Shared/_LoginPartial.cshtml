@@ -1,0 +1,42 @@
+@using Microsoft.AspNetCore.Identity
+@using MediaBizzare.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <span class="Header-user-name">@User.Identity?.Name</span>
+    <form asp-controller="Account" asp-action="Logout" method="post" class="Header-logout-form">
+        <button type="submit" class="Header-action-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Log out</span>
+        </button>
+    </form>
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="Header-action-btn Header-admin-btn" asp-controller="Categories" asp-action="Index">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Admin</span>
+        </a>
+    }
+}
+else
+{
+    <a asp-controller="Account" asp-action="Login">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="10" r="3"></circle>
+            <path d="M6.3 19.1a8 8 0 0 1 11.4 0"></path>
+        </svg>
+        <span>Login</span>
+    </a>
+}

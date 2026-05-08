@@ -2,7 +2,7 @@
     string currentAction = "";
     if (ViewContext.RouteData.Values["action"] != null)
     {
-        currentAction = ViewContext.RouteData.Values["action"].ToString();
+        currentAction = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
     }
 }
 <!DOCTYPE html>
@@ -40,14 +40,7 @@
             </form>
 
             <div class="Header-actions">
-                <a href="#">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <circle cx="12" cy="10" r="3"></circle>
-                        <path d="M6.3 19.1a8 8 0 0 1 11.4 0"></path>
-                    </svg>
-                    <span>Account</span>
-                </a>
+                <partial name="_LoginPartial" />
                 <a asp-controller="Home" asp-action="Cart">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="8" cy="21" r="1"></circle>
@@ -145,5 +138,9 @@
             </div>
         </div>
     </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
