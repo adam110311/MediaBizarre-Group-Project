@@ -1,34 +1,37 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using MediaBizzare.Data;
 using MediaBizzare.Models;
 using MediaBizzare.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MediaBizzare.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AppDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, AppDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         // ---------- HOME ----------
 
         public IActionResult Index()
         {
+            var products = _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Variations)
+                .ToList();
+
             HomeIndexVM vm = new HomeIndexVM();
             vm.Categories = BuildCategoryTiles();
-
-            List<ProductCardVM> all = MockCatalog();
-            List<ProductCardVM> best = new List<ProductCardVM>();
-            for (int i = 0; i < all.Count && i < 8; i++)
-            {
-                best.Add(all[i]);
-            }
-            vm.Bestsellers = best;
+            vm.Bestsellers = ToProductCards(products).Take(8).ToList();
 
             return View(vm);
         }
@@ -57,46 +60,41 @@ namespace MediaBizzare.Controllers
 
         public IActionResult CompLap()
         {
-            CategoryPageVM vm = BuildCategoryPage(
-                "Computer & laptop",
-                "CompLap",
-                new string[] { "Laptops", "Desktops", "Monitors", "Accessories" });
+            var products = ProductsBySlug("laptops", "computers", "computer", "laptop");
+            var vm = BuildCategoryPage("Computer & laptop", "CompLap",
+                new string[] { "Laptops", "Desktops", "Monitors", "Accessories" }, products);
             return View("Category", vm);
         }
 
         public IActionResult PhoneWear()
         {
-            CategoryPageVM vm = BuildCategoryPage(
-                "Smartphone & wearables",
-                "PhoneWear",
-                new string[] { "Smartphones", "Smartwatches", "Earbuds", "Accessories" });
+            var products = ProductsBySlug("smartphones", "smartphone", "wearables", "wearable", "phones");
+            var vm = BuildCategoryPage("Smartphone & wearables", "PhoneWear",
+                new string[] { "Smartphones", "Smartwatches", "Earbuds", "Accessories" }, products);
             return View("Category", vm);
         }
 
         public IActionResult TVaudio()
         {
-            CategoryPageVM vm = BuildCategoryPage(
-                "TV & audio",
-                "TVaudio",
-                new string[] { "Televisions", "Speakers", "Soundbars", "Headphones" });
+            var products = ProductsBySlug("tvs", "tv", "audio", "soundbar");
+            var vm = BuildCategoryPage("TV & audio", "TVaudio",
+                new string[] { "Televisions", "Speakers", "Soundbars", "Headphones" }, products);
             return View("Category", vm);
         }
 
         public IActionResult HA()
         {
-            CategoryPageVM vm = BuildCategoryPage(
-                "Household appliances",
-                "HA",
-                new string[] { "Kitchen", "Laundry", "Cleaning", "Small appliances" });
+            var products = ProductsBySlug("household-appliances", "household", "kitchen", "laundry", "cleaning");
+            var vm = BuildCategoryPage("Household appliances", "HA",
+                new string[] { "Kitchen", "Laundry", "Cleaning", "Small appliances" }, products);
             return View("Category", vm);
         }
 
         public IActionResult GameDivert()
         {
-            CategoryPageVM vm = BuildCategoryPage(
-                "Game & entertainment",
-                "GameDivert",
-                new string[] { "Consoles", "Games", "Controllers", "VR" });
+            var products = ProductsBySlug("gaming", "games", "consoles", "entertainment");
+            var vm = BuildCategoryPage("Game & entertainment", "GameDivert",
+                new string[] { "Consoles", "Games", "Controllers", "VR" }, products);
             return View("Category", vm);
         }
 
@@ -104,29 +102,27 @@ namespace MediaBizzare.Controllers
 
         public IActionResult Product(int id = 1)
         {
-            List<ProductCardVM> all = MockCatalog();
-            ProductCardVM card = all[0];
-            for (int i = 0; i < all.Count; i++)
-            {
-                if (all[i].Id == id)
-                {
-                    card = all[i];
-                    break;
-                }
-            }
+            var product = _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Variations)
+                .FirstOrDefault(p => p.Id == id);
+
+            if (product == null)
+                return NotFound();
+
+            decimal price = product.Variations.Any()
+                ? product.Variations.Min(v => v.Price)
+                : 0m;
 
             ProductDetailVM vm = new ProductDetailVM();
-            vm.Id = card.Id;
-            vm.Name = card.Name;
-            vm.CategoryName = card.Category;
+            vm.Id = product.Id;
+            vm.Name = product.Name;
+            vm.CategoryName = product.Category?.Name ?? "";
             vm.CategoryAction = "Categories";
-            vm.Price = card.Price;
-            vm.OriginalPrice = card.OriginalPrice;
-            vm.Rating = 3.5;
-            vm.ReviewCount = 10;
-            vm.Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.";
-            vm.Images = new List<string> { card.ImageUrl, "", "", "", "" };
-            vm.Variants = new List<string> { "Black", "Blue", "Silver", "White" };
+            vm.Price = price;
+            vm.Description = product.Description;
+            vm.Images = new List<string>();
+            vm.Variants = product.Variations.Select(v => v.SKU).ToList();
 
             return View(vm);
         }
@@ -163,14 +159,7 @@ namespace MediaBizzare.Controllers
             }
             vm.Subtotal = subtotal;
 
-            if (subtotal == 0m || subtotal >= 50m)
-            {
-                vm.Shipping = 0m;
-            }
-            else
-            {
-                vm.Shipping = 4.95m;
-            }
+            vm.Shipping = (subtotal == 0m || subtotal >= 50m) ? 0m : 4.95m;
             vm.Total = vm.Subtotal + vm.Shipping;
 
             return View(vm);
@@ -193,7 +182,43 @@ namespace MediaBizzare.Controllers
             return View(new ErrorViewModel { RequestId = requestId });
         }
 
-        // ---------- HELPERS (mock data) ----------
+        // ---------- HELPERS ----------
+
+        private List<Product> ProductsBySlug(params string[] categorySlugs)
+        {
+            return _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Variations)
+                .Where(p => p.Category != null && categorySlugs.Contains(p.Category.Slug))
+                .ToList();
+        }
+
+        private CategoryPageVM BuildCategoryPage(string name, string action, string[] filters, List<Product> products)
+        {
+            CategoryPageVM vm = new CategoryPageVM();
+            vm.CategoryName = name;
+            vm.Action = action;
+            vm.Products = ToProductCards(products);
+            vm.Filters = filters.ToList();
+            return vm;
+        }
+
+        private List<ProductCardVM> ToProductCards(IEnumerable<Product> products)
+        {
+            var result = new List<ProductCardVM>();
+            foreach (var p in products)
+            {
+                decimal price = p.Variations.Any() ? p.Variations.Min(v => v.Price) : 0m;
+                ProductCardVM card = new ProductCardVM();
+                card.Id = p.Id;
+                card.Slug = p.Slug;
+                card.Name = p.Name;
+                card.Price = price;
+                card.Category = p.Category?.Name ?? "";
+                result.Add(card);
+            }
+            return result;
+        }
 
         private List<CategoryTileVM> BuildCategoryTiles()
         {
@@ -236,56 +261,6 @@ namespace MediaBizzare.Controllers
             tiles.Add(t9);
 
             return tiles;
-        }
-
-        private CategoryPageVM BuildCategoryPage(string name, string action, string[] filters)
-        {
-            List<ProductCardVM> products = MockCatalog();
-            for (int i = 0; i < products.Count; i++)
-            {
-                products[i].Category = name;
-            }
-
-            List<string> filterList = new List<string>();
-            for (int i = 0; i < filters.Length; i++)
-            {
-                filterList.Add(filters[i]);
-            }
-
-            CategoryPageVM vm = new CategoryPageVM();
-            vm.CategoryName = name;
-            vm.Action = action;
-            vm.Products = products;
-            vm.Filters = filterList;
-            return vm;
-        }
-
-        private List<ProductCardVM> MockCatalog()
-        {
-            List<ProductCardVM> items = new List<ProductCardVM>();
-            for (int i = 1; i <= 8; i++)
-            {
-                ProductCardVM p = new ProductCardVM();
-                p.Id = i;
-                p.Slug = "apple-iphone-17-" + i;
-                p.Name = "APPLE iPhone 17 - 5G - 256 GB Mist Blue";
-                p.Price = 939m;
-                p.OriginalPrice = 969m;
-                p.Category = "Smartphone & wearables";
-
-                if (p.OriginalPrice.HasValue)
-                {
-                    p.Saving = p.OriginalPrice.Value - p.Price;
-                }
-                else
-                {
-                    p.Saving = 0m;
-                }
-                p.OnSale = p.Saving > 0m;
-
-                items.Add(p);
-            }
-            return items;
         }
     }
 }
