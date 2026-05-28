@@ -146,7 +146,8 @@ namespace MediaBizzare.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DepartmentId");
+                    b.HasIndex("DepartmentId")
+                        .IsUnique();
 
                     b.ToTable("Categories");
                 });
@@ -314,6 +315,10 @@ namespace MediaBizzare.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");

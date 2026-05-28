@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,7 @@ using MediaBizzare.Models;
 
 namespace MediaBizzare.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class ProductVariationsController : Controller
     {
         private readonly AppDbContext _context;
@@ -21,83 +22,148 @@ namespace MediaBizzare.Controllers
             _context = context;
         }
 
+        // Returns the IDs of products that belong to the department managed by the current user.
+        private async Task<List<int>> GetManagedProductIdsAsync()
+        {
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            var employee = await _context.Employees.FirstOrDefaultAsync(e => e.UserId == userId);
+            if (employee == null) return new List<int>();
+            var dept = await _context.Departments.FirstOrDefaultAsync(d => d.ManagerId == employee.Id);
+            if (dept == null) return new List<int>();
+            var category = await _context.Categories.FirstOrDefaultAsync(c => c.DepartmentId == dept.Id);
+            if (category == null) return new List<int>();
+            return await _context.Products.Where(p => p.CategoryId == category.Id).Select(p => p.Id).ToListAsync();
+        }
+
         // GET: ProductVariations
+        [Authorize(Roles = "Admin,DepartmentManager")]
         public async Task<IActionResult> Index()
         {
-            var mediaBizzareContext = _context.ProductVariations.Include(p => p.Product);
-            return View(await mediaBizzareContext.ToListAsync());
+            IQueryable<ProductVariations> query = _context.ProductVariations.Include(p => p.Product);
+
+            if (!User.IsInRole("Admin"))
+            {
+                var productIds = await GetManagedProductIdsAsync();
+                query = query.Where(pv => productIds.Contains(pv.ProductId));
+            }
+
+            return View(await query.ToListAsync());
         }
 
         // GET: ProductVariations/Details/5
+        [Authorize(Roles = "Admin,DepartmentManager")]
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var productVariations = await _context.ProductVariations
                 .Include(p => p.Product)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (productVariations == null)
+            if (productVariations == null) return NotFound();
+
+            if (!User.IsInRole("Admin"))
             {
-                return NotFound();
+                var productIds = await GetManagedProductIdsAsync();
+                if (!productIds.Contains(productVariations.ProductId))
+                    return Forbid();
             }
 
             return View(productVariations);
         }
 
         // GET: ProductVariations/Create
-        public IActionResult Create()
+        [Authorize(Roles = "Admin,DepartmentManager")]
+        public async Task<IActionResult> Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Description");
+            if (!User.IsInRole("Admin"))
+            {
+                var productIds = await GetManagedProductIdsAsync();
+                var products = await _context.Products.Where(p => productIds.Contains(p.Id)).ToListAsync();
+                ViewData["ProductId"] = new SelectList(products, "Id", "Name");
+            }
+            else
+            {
+                ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name");
+            }
             return View();
         }
 
         // POST: ProductVariations/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ProductId,SKU,Price,Stock")] ProductVariations productVariations)
+        [Authorize(Roles = "Admin,DepartmentManager")]
+        public async Task<IActionResult> Create([Bind("Id,ProductId,SKU,Price,Stock,ImageUrl")] ProductVariations productVariations)
         {
+            if (!User.IsInRole("Admin"))
+            {
+                var productIds = await GetManagedProductIdsAsync();
+                if (!productIds.Contains(productVariations.ProductId))
+                    return Forbid();
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(productVariations);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Description", productVariations.ProductId);
+
+            if (!User.IsInRole("Admin"))
+            {
+                var productIds = await GetManagedProductIdsAsync();
+                var products = await _context.Products.Where(p => productIds.Contains(p.Id)).ToListAsync();
+                ViewData["ProductId"] = new SelectList(products, "Id", "Name", productVariations.ProductId);
+            }
+            else
+            {
+                ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", productVariations.ProductId);
+            }
             return View(productVariations);
         }
 
         // GET: ProductVariations/Edit/5
+        [Authorize(Roles = "Admin,DepartmentManager")]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var productVariations = await _context.ProductVariations.FindAsync(id);
-            if (productVariations == null)
+            if (productVariations == null) return NotFound();
+
+            if (!User.IsInRole("Admin"))
             {
-                return NotFound();
+                var productIds = await GetManagedProductIdsAsync();
+                if (!productIds.Contains(productVariations.ProductId))
+                    return Forbid();
+                var products = await _context.Products.Where(p => productIds.Contains(p.Id)).ToListAsync();
+                ViewData["ProductId"] = new SelectList(products, "Id", "Name", productVariations.ProductId);
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Description", productVariations.ProductId);
+            else
+            {
+                ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", productVariations.ProductId);
+            }
             return View(productVariations);
         }
 
         // POST: ProductVariations/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ProductId,SKU,Price,Stock")] ProductVariations productVariations)
+        [Authorize(Roles = "Admin,DepartmentManager")]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ProductId,SKU,Price,Stock,ImageUrl")] ProductVariations productVariations)
         {
-            if (id != productVariations.Id)
+            if (id != productVariations.Id) return NotFound();
+
+            if (!User.IsInRole("Admin"))
             {
-                return NotFound();
+                // Always re-fetch ProductId from DB — DM cannot move a variation to another product.
+                var dbPv = await _context.ProductVariations.AsNoTracking().FirstOrDefaultAsync(pv => pv.Id == id);
+                if (dbPv == null) return NotFound();
+
+                var productIds = await GetManagedProductIdsAsync();
+                if (!productIds.Contains(dbPv.ProductId))
+                    return Forbid();
+
+                productVariations.ProductId = dbPv.ProductId;
             }
 
             if (ModelState.IsValid)
@@ -109,36 +175,35 @@ namespace MediaBizzare.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductVariationsExists(productVariations.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!ProductVariationsExists(productVariations.Id)) return NotFound();
+                    throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Description", productVariations.ProductId);
+
+            if (!User.IsInRole("Admin"))
+            {
+                var productIds = await GetManagedProductIdsAsync();
+                var products = await _context.Products.Where(p => productIds.Contains(p.Id)).ToListAsync();
+                ViewData["ProductId"] = new SelectList(products, "Id", "Name", productVariations.ProductId);
+            }
+            else
+            {
+                ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", productVariations.ProductId);
+            }
             return View(productVariations);
         }
 
         // GET: ProductVariations/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var productVariations = await _context.ProductVariations
                 .Include(p => p.Product)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (productVariations == null)
-            {
-                return NotFound();
-            }
+            if (productVariations == null) return NotFound();
 
             return View(productVariations);
         }
@@ -146,13 +211,12 @@ namespace MediaBizzare.Controllers
         // POST: ProductVariations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var productVariations = await _context.ProductVariations.FindAsync(id);
             if (productVariations != null)
-            {
                 _context.ProductVariations.Remove(productVariations);
-            }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

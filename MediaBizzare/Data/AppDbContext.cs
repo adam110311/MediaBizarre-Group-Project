@@ -49,12 +49,16 @@ namespace MediaBizzare.Data
                 .HasForeignKey(e => e.DepartmentId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Department -> Categories
+            // Department -> Category (one-to-one enforced via unique index on DepartmentId)
             modelBuilder.Entity<Category>()
                 .HasOne(c => c.Department)
                 .WithMany(d => d.Categories)
                 .HasForeignKey(c => c.DepartmentId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Category>()
+                .HasIndex(c => c.DepartmentId)
+                .IsUnique();
 
             // Department -> Manager(Employee)
             modelBuilder.Entity<Department>()

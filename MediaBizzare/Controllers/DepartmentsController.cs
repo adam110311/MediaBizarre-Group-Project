@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,7 @@ using MediaBizzare.Models;
 
 namespace MediaBizzare.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class DepartmentsController : Controller
     {
         private readonly AppDbContext _context;
@@ -21,14 +22,36 @@ namespace MediaBizzare.Controllers
             _context = context;
         }
 
+        // Returns the department managed by the current user (null if not a manager).
+        private async Task<Department?> GetManagedDepartmentAsync()
+        {
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            var employee = await _context.Employees.FirstOrDefaultAsync(e => e.UserId == userId);
+            if (employee == null) return null;
+            return await _context.Departments.FirstOrDefaultAsync(d => d.ManagerId == employee.Id);
+        }
+
         // GET: Departments
+        [Authorize(Roles = "Admin,DepartmentManager")]
         public async Task<IActionResult> Index()
         {
-            var mediaBizzareContext = _context.Departments.Include(d => d.Manager);
-            return View(await mediaBizzareContext.ToListAsync());
+            IQueryable<Department> query = _context.Departments
+                .Include(d => d.Manager)
+                .ThenInclude(m => m!.User);
+
+            if (!User.IsInRole("Admin"))
+            {
+                var dept = await GetManagedDepartmentAsync();
+                if (dept == null)
+                    return View(new List<Department>());
+                query = query.Where(d => d.Id == dept.Id);
+            }
+
+            return View(await query.ToListAsync());
         }
 
         // GET: Departments/Details/5
+        [Authorize(Roles = "Admin,DepartmentManager")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -38,6 +61,7 @@ namespace MediaBizzare.Controllers
 
             var department = await _context.Departments
                 .Include(d => d.Manager)
+                .ThenInclude(m => m!.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (department == null)
             {
@@ -48,9 +72,10 @@ namespace MediaBizzare.Controllers
         }
 
         // GET: Departments/Create
-        public IActionResult Create()
+        [Authorize(Roles = "Admin,DepartmentManager")]
+        public async Task<IActionResult> Create()
         {
-            ViewData["ManagerId"] = new SelectList(_context.Employees, "Id", "EmergencyContact");
+            ViewData["ManagerId"] = await BuildManagerSelectListAsync();
             return View();
         }
 
@@ -59,6 +84,7 @@ namespace MediaBizzare.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,DepartmentManager")]
         public async Task<IActionResult> Create([Bind("Id,ManagerId,Name,Slug,Description")] Department department)
         {
             if (ModelState.IsValid)
@@ -67,11 +93,12 @@ namespace MediaBizzare.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ManagerId"] = new SelectList(_context.Employees, "Id", "EmergencyContact", department.ManagerId);
+            ViewData["ManagerId"] = await BuildManagerSelectListAsync(department.ManagerId);
             return View(department);
         }
 
         // GET: Departments/Edit/5
+        [Authorize(Roles = "Admin,DepartmentManager")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,7 +111,16 @@ namespace MediaBizzare.Controllers
             {
                 return NotFound();
             }
-            ViewData["ManagerId"] = new SelectList(_context.Employees, "Id", "EmergencyContact", department.ManagerId);
+
+            // DepartmentManager can only edit the department they manage.
+            if (!User.IsInRole("Admin"))
+            {
+                var managed = await GetManagedDepartmentAsync();
+                if (managed == null || managed.Id != department.Id)
+                    return Forbid();
+            }
+
+            ViewData["ManagerId"] = await BuildManagerSelectListAsync(department.ManagerId);
             return View(department);
         }
 
@@ -93,11 +129,20 @@ namespace MediaBizzare.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,DepartmentManager")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ManagerId,Name,Slug,Description")] Department department)
         {
             if (id != department.Id)
             {
                 return NotFound();
+            }
+
+            // DepartmentManager can only edit the department they manage.
+            if (!User.IsInRole("Admin"))
+            {
+                var managed = await GetManagedDepartmentAsync();
+                if (managed == null || managed.Id != id)
+                    return Forbid();
             }
 
             if (ModelState.IsValid)
@@ -120,11 +165,12 @@ namespace MediaBizzare.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ManagerId"] = new SelectList(_context.Employees, "Id", "EmergencyContact", department.ManagerId);
+            ViewData["ManagerId"] = await BuildManagerSelectListAsync(department.ManagerId);
             return View(department);
         }
 
         // GET: Departments/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,6 +180,7 @@ namespace MediaBizzare.Controllers
 
             var department = await _context.Departments
                 .Include(d => d.Manager)
+                .ThenInclude(m => m!.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (department == null)
             {
@@ -146,6 +193,7 @@ namespace MediaBizzare.Controllers
         // POST: Departments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var department = await _context.Departments.FindAsync(id);
@@ -161,6 +209,20 @@ namespace MediaBizzare.Controllers
         private bool DepartmentExists(int id)
         {
             return _context.Departments.Any(e => e.Id == id);
+        }
+
+        // Builds a SelectList of employees showing "First Last — Job Title" as display text.
+        private async Task<List<SelectListItem>> BuildManagerSelectListAsync(int? selectedId = null)
+        {
+            return await _context.Employees
+                .Include(e => e.User)
+                .Select(e => new SelectListItem
+                {
+                    Value = e.Id.ToString(),
+                    Text = e.User!.Name + " " + e.User.Surname + " — " + e.JobTitle,
+                    Selected = selectedId.HasValue && e.Id == selectedId.Value
+                })
+                .ToListAsync();
         }
     }
 }

@@ -19,5 +19,10 @@ namespace MediaBizzare.Models
 
         [Required]
         public int Stock { get; set; }
+
+        // Optional image URL for this specific variation (e.g. colour variant photo).
+        // Falls back to the first variation that has an image when displaying a product card.
+        [StringLength(500)]
+        public string? ImageUrl { get; set; }
     }
 }

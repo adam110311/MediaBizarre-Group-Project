@@ -4,6 +4,7 @@ using System.Linq;
 using MediaBizzare.Data;
 using MediaBizzare.Models;
 using MediaBizzare.Models.ViewModels;
+using MediaBizzare.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,11 +14,13 @@ namespace MediaBizzare.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly AppDbContext _context;
+        private readonly CartService _cart;
 
-        public HomeController(ILogger<HomeController> logger, AppDbContext context)
+        public HomeController(ILogger<HomeController> logger, AppDbContext context, CartService cart)
         {
             _logger = logger;
             _context = context;
+            _cart = cart;
         }
 
         // ---------- HOME ----------
@@ -56,46 +59,25 @@ namespace MediaBizzare.Controllers
             return View(vm);
         }
 
-        // ---------- CATEGORY PAGES ----------
+        // ---------- CATEGORY PAGE (dynamic — driven by the DB slug) ----------
 
-        public IActionResult CompLap()
+        public IActionResult Category(string slug)
         {
-            var products = ProductsBySlug("laptops", "computers", "computer", "laptop");
-            var vm = BuildCategoryPage("Computer & laptop", "CompLap",
-                new string[] { "Laptops", "Desktops", "Monitors", "Accessories" }, products);
-            return View("Category", vm);
-        }
+            var category = _context.Categories
+                .Include(c => c.Products)
+                    .ThenInclude(p => p.Variations)
+                .FirstOrDefault(c => c.Slug == slug);
 
-        public IActionResult PhoneWear()
-        {
-            var products = ProductsBySlug("smartphones", "smartphone", "wearables", "wearable", "phones");
-            var vm = BuildCategoryPage("Smartphone & wearables", "PhoneWear",
-                new string[] { "Smartphones", "Smartwatches", "Earbuds", "Accessories" }, products);
-            return View("Category", vm);
-        }
+            if (category == null)
+                return NotFound();
 
-        public IActionResult TVaudio()
-        {
-            var products = ProductsBySlug("tvs", "tv", "audio", "soundbar");
-            var vm = BuildCategoryPage("TV & audio", "TVaudio",
-                new string[] { "Televisions", "Speakers", "Soundbars", "Headphones" }, products);
-            return View("Category", vm);
-        }
+            CategoryPageVM vm = new CategoryPageVM();
+            vm.CategoryName = category.Name;
+            vm.Action = slug;
+            vm.Products = ToProductCards(category.Products);
+            vm.Filters = new List<string>();
 
-        public IActionResult HA()
-        {
-            var products = ProductsBySlug("household-appliances", "household", "kitchen", "laundry", "cleaning");
-            var vm = BuildCategoryPage("Household appliances", "HA",
-                new string[] { "Kitchen", "Laundry", "Cleaning", "Small appliances" }, products);
-            return View("Category", vm);
-        }
-
-        public IActionResult GameDivert()
-        {
-            var products = ProductsBySlug("gaming", "games", "consoles", "entertainment");
-            var vm = BuildCategoryPage("Game & entertainment", "GameDivert",
-                new string[] { "Consoles", "Games", "Controllers", "VR" }, products);
-            return View("Category", vm);
+            return View(vm);
         }
 
         // ---------- PRODUCT DETAIL ----------
@@ -110,19 +92,29 @@ namespace MediaBizzare.Controllers
             if (product == null)
                 return NotFound();
 
-            decimal price = product.Variations.Any()
-                ? product.Variations.Min(v => v.Price)
-                : 0m;
+            var cheapest = product.Variations.OrderBy(v => v.Price).FirstOrDefault();
 
             ProductDetailVM vm = new ProductDetailVM();
             vm.Id = product.Id;
             vm.Name = product.Name;
             vm.CategoryName = product.Category?.Name ?? "";
             vm.CategoryAction = "Categories";
-            vm.Price = price;
+            vm.Price = cheapest?.Price ?? 0m;
             vm.Description = product.Description;
-            vm.Images = new List<string>();
-            vm.Variants = product.Variations.Select(v => v.SKU).ToList();
+            vm.Images = product.Variations
+                .Where(v => !string.IsNullOrWhiteSpace(v.ImageUrl))
+                .Select(v => v.ImageUrl!)
+                .Distinct()
+                .ToList();
+            vm.Variants = product.Variations
+                .OrderBy(v => v.Price)
+                .Select(v => new VariantOptionVM
+                {
+                    VariationId = v.Id,
+                    Label       = v.SKU,
+                    Price       = v.Price
+                })
+                .ToList();
 
             return View(vm);
         }
@@ -131,36 +123,39 @@ namespace MediaBizzare.Controllers
 
         public IActionResult Cart()
         {
-            CartVM vm = new CartVM();
-            vm.Items = new List<CartItemVM>();
+            var sessionItems = _cart.GetItems();
+            var vm = new CartVM();
 
-            CartItemVM item1 = new CartItemVM();
-            item1.Id = 1;
-            item1.Name = "APPLE iPhone 17 5G 256 GB Mist Blue";
-            item1.Variant = "Mist Blue";
-            item1.UnitPrice = 939m;
-            item1.Quantity = 1;
-            item1.LineTotal = item1.UnitPrice * item1.Quantity;
-            vm.Items.Add(item1);
+            if (!sessionItems.Any())
+                return View(vm);
 
-            CartItemVM item2 = new CartItemVM();
-            item2.Id = 2;
-            item2.Name = "Sony WH-1000XM5 Wireless Headphones";
-            item2.Variant = "Black";
-            item2.UnitPrice = 349m;
-            item2.Quantity = 2;
-            item2.LineTotal = item2.UnitPrice * item2.Quantity;
-            vm.Items.Add(item2);
+            var variationIds = sessionItems.Select(i => i.VariationId).ToList();
+            var variations = _context.ProductVariations
+                .Include(v => v.Product)
+                .Where(v => variationIds.Contains(v.Id))
+                .ToList();
 
-            decimal subtotal = 0m;
-            for (int i = 0; i < vm.Items.Count; i++)
+            foreach (var si in sessionItems)
             {
-                subtotal += vm.Items[i].LineTotal;
-            }
-            vm.Subtotal = subtotal;
+                var variation = variations.FirstOrDefault(v => v.Id == si.VariationId);
+                if (variation == null) continue;
 
-            vm.Shipping = (subtotal == 0m || subtotal >= 50m) ? 0m : 4.95m;
-            vm.Total = vm.Subtotal + vm.Shipping;
+                vm.Items.Add(new CartItemVM
+                {
+                    Id          = variation.Product?.Id ?? 0,
+                    VariationId = variation.Id,
+                    Name        = variation.Product?.Name ?? "",
+                    ImageUrl    = variation.ImageUrl ?? "",
+                    Variant     = variation.SKU,
+                    UnitPrice   = variation.Price,
+                    Quantity    = si.Quantity,
+                    LineTotal   = variation.Price * si.Quantity
+                });
+            }
+
+            vm.Subtotal = vm.Items.Sum(i => i.LineTotal);
+            vm.Shipping = (vm.Subtotal == 0m || vm.Subtotal >= 50m) ? 0m : 4.95m;
+            vm.Total    = vm.Subtotal + vm.Shipping;
 
             return View(vm);
         }
@@ -184,25 +179,6 @@ namespace MediaBizzare.Controllers
 
         // ---------- HELPERS ----------
 
-        private List<Product> ProductsBySlug(params string[] categorySlugs)
-        {
-            return _context.Products
-                .Include(p => p.Category)
-                .Include(p => p.Variations)
-                .Where(p => p.Category != null && categorySlugs.Contains(p.Category.Slug))
-                .ToList();
-        }
-
-        private CategoryPageVM BuildCategoryPage(string name, string action, string[] filters, List<Product> products)
-        {
-            CategoryPageVM vm = new CategoryPageVM();
-            vm.CategoryName = name;
-            vm.Action = action;
-            vm.Products = ToProductCards(products);
-            vm.Filters = filters.ToList();
-            return vm;
-        }
-
         private List<ProductCardVM> ToProductCards(IEnumerable<Product> products)
         {
             var result = new List<ProductCardVM>();
@@ -215,6 +191,11 @@ namespace MediaBizzare.Controllers
                 card.Name = p.Name;
                 card.Price = price;
                 card.Category = p.Category?.Name ?? "";
+                // Use the first variation that has an image URL
+                var cheapest = p.Variations.OrderBy(v => v.Price).FirstOrDefault();
+                card.DefaultVariationId = cheapest?.Id ?? 0;
+                card.ImageUrl = p.Variations
+                    .FirstOrDefault(v => !string.IsNullOrWhiteSpace(v.ImageUrl))?.ImageUrl ?? "";
                 result.Add(card);
             }
             return result;
@@ -222,45 +203,16 @@ namespace MediaBizzare.Controllers
 
         private List<CategoryTileVM> BuildCategoryTiles()
         {
-            List<CategoryTileVM> tiles = new List<CategoryTileVM>();
-
-            CategoryTileVM t1 = new CategoryTileVM();
-            t1.Name = "Computer"; t1.Action = "CompLap"; t1.Span = 1;
-            tiles.Add(t1);
-
-            CategoryTileVM t2 = new CategoryTileVM();
-            t2.Name = "Laptop"; t2.Action = "CompLap"; t2.Span = 1;
-            tiles.Add(t2);
-
-            CategoryTileVM t3 = new CategoryTileVM();
-            t3.Name = "Smartphone"; t3.Action = "PhoneWear"; t3.Span = 1;
-            tiles.Add(t3);
-
-            CategoryTileVM t4 = new CategoryTileVM();
-            t4.Name = "Wearables"; t4.Action = "PhoneWear"; t4.Span = 1;
-            tiles.Add(t4);
-
-            CategoryTileVM t5 = new CategoryTileVM();
-            t5.Name = "TV"; t5.Action = "TVaudio"; t5.Span = 1;
-            tiles.Add(t5);
-
-            CategoryTileVM t6 = new CategoryTileVM();
-            t6.Name = "Audio"; t6.Action = "TVaudio"; t6.Span = 2;
-            tiles.Add(t6);
-
-            CategoryTileVM t7 = new CategoryTileVM();
-            t7.Name = "Household Appliances"; t7.Action = "HA"; t7.Span = 1;
-            tiles.Add(t7);
-
-            CategoryTileVM t8 = new CategoryTileVM();
-            t8.Name = "Gaming"; t8.Action = "GameDivert"; t8.Span = 1;
-            tiles.Add(t8);
-
-            CategoryTileVM t9 = new CategoryTileVM();
-            t9.Name = "Entertainment"; t9.Action = "GameDivert"; t9.Span = 1;
-            tiles.Add(t9);
-
-            return tiles;
+            return _context.Categories
+                .OrderBy(c => c.Name)
+                .Select(c => new CategoryTileVM
+                {
+                    Name = c.Name,
+                    Slug = c.Slug,
+                    Action = "Category",
+                    Span = 1
+                })
+                .ToList();
         }
     }
 }
