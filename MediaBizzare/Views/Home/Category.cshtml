@@ -1,6 +1,8 @@
 @model CategoryPageVM
 @{
     ViewData["Title"] = Model.CategoryName;
+    decimal minPrice = Model.Products.Any() ? Model.Products.Min(p => p.Price) : 0;
+    decimal maxPrice = Model.Products.Any() ? Model.Products.Max(p => p.Price) : 0;
 }
 
 <section class="Container">
@@ -16,23 +18,33 @@
 <section class="CategoryPage">
     <aside class="CategoryPage-filters">
         <h3>Filter by</h3>
-        <ul>
-            @foreach (string filter in Model.Filters)
-            {
-                <li>
-                    <label>
-                        <input type="checkbox" />
-                        <span>@filter</span>
-                    </label>
-                </li>
-            }
-        </ul>
+
+        @if (Model.Products.Any())
+        {
+            <div class="PriceFilter">
+                <h4>Price</h4>
+                <div class="PriceFilter-inputs">
+                    <div class="PriceFilter-field">
+                        <label>Min</label>
+                        <span>€</span>
+                        <input type="number" id="priceMin" min="0" placeholder="@((int)minPrice)" />
+                    </div>
+                    <div class="PriceFilter-sep">–</div>
+                    <div class="PriceFilter-field">
+                        <label>Max</label>
+                        <span>€</span>
+                        <input type="number" id="priceMax" min="0" placeholder="@((int)maxPrice)" />
+                    </div>
+                </div>
+                <button type="button" class="PriceFilter-reset" id="priceReset">Clear filter</button>
+            </div>
+        }
     </aside>
 
     <div>
         <div class="CategoryPage-head">
             <h1>@Model.CategoryName</h1>
-            <span class="TextMuted">@Model.Products.Count products</span>
+            <span class="TextMuted" id="productCount">@Model.Products.Count products</span>
         </div>
 
         @if (Model.Products.Count == 0)
@@ -41,12 +53,55 @@
         }
         else
         {
-            <div class="ProductGrid">
+            <div class="ProductGrid" id="productGrid">
                 @foreach (ProductCardVM p in Model.Products)
                 {
                     <partial name="_ProductCard" model="p" />
                 }
             </div>
+            <p class="TextMuted" id="noResults" style="display:none; margin-top:32px; text-align:center;">
+                No products match the selected price range.
+            </p>
         }
     </div>
 </section>
+
+@section Scripts {
+<script>
+(function () {
+    const minInput  = document.getElementById('priceMin');
+    const maxInput  = document.getElementById('priceMax');
+    const resetBtn  = document.getElementById('priceReset');
+    const countEl   = document.getElementById('productCount');
+    const noResults = document.getElementById('noResults');
+    const cards     = document.querySelectorAll('#productGrid .ProductCard');
+
+    if (!minInput) return; // no products, nothing to filter
+
+    function applyFilter() {
+        const min = minInput.value !== '' ? parseFloat(minInput.value) : -Infinity;
+        const max = maxInput.value !== '' ? parseFloat(maxInput.value) :  Infinity;
+
+        let visible = 0;
+        cards.forEach(card => {
+            const price = parseFloat(card.dataset.price);
+            const show  = price >= min && price <= max;
+            card.closest('article').style.display = show ? '' : 'none';
+            if (show) visible++;
+        });
+
+        countEl.textContent  = visible + ' product' + (visible !== 1 ? 's' : '');
+        noResults.style.display = visible === 0 ? '' : 'none';
+    }
+
+    minInput.addEventListener('input', applyFilter);
+    maxInput.addEventListener('input', applyFilter);
+
+    resetBtn.addEventListener('click', function () {
+        minInput.value = '';
+        maxInput.value = '';
+        applyFilter();
+    });
+})();
+</script>
+}

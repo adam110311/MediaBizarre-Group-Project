@@ -347,29 +347,52 @@
 
 .ProductCard-media {
     position: relative;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
     background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .ProductCard-media img {
-    max-height: 80%;
-    width: auto;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+    padding: 16px;
 }
 
 .ProductCard-placeholder {
-    width: 60%;
+    width: 50%;
     aspect-ratio: 1;
     color: #D1D5DB;
 }
 
 .ProductCard-cart {
     position: absolute;
-    right: 12px;
-    bottom: 12px;
+    right: 10px;
+    bottom: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    padding: 0;
+    background: #163251;
+    color: #fff;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.ProductCard-cart:hover {
+    background: #1e4372;
+}
+
+.ProductCard-cart svg {
+    width: 16px;
+    height: 16px;
 }
 
 .ProductCard-body {

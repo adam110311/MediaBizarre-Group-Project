@@ -275,6 +275,96 @@
     }
 }
 
+/* ---------- Price filter ---------- */
+
+.PriceFilter {
+    border-top: 1px solid #E5E7EB;
+    margin-top: 16px;
+    padding-top: 16px;
+}
+
+.PriceFilter h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: #0F172A;
+}
+
+.PriceFilter-inputs {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.PriceFilter-field {
+    flex: 1;
+    position: relative;
+}
+
+.PriceFilter-field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: #64748B;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.PriceFilter-field span {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    font-size: 13px;
+    color: #64748B;
+    pointer-events: none;
+}
+
+.PriceFilter-field input {
+    width: 100%;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    padding: 6px 8px 6px 20px;
+    font-size: 14px;
+    color: #0F172A;
+    outline: none;
+    background: #F9FAFB;
+    -moz-appearance: textfield;
+}
+
+.PriceFilter-field input::-webkit-outer-spin-button,
+.PriceFilter-field input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.PriceFilter-field input:focus {
+    border-color: #163251;
+    background: #fff;
+}
+
+.PriceFilter-sep {
+    padding-top: 18px;
+    color: #94A3B8;
+    font-size: 13px;
+}
+
+.PriceFilter-reset {
+    display: block;
+    margin-top: 10px;
+    background: none;
+    border: none;
+    font-size: 12px;
+    color: #163251;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.PriceFilter-reset:hover {
+    color: #1e4372;
+}
+
 /* ---------- Product detail ---------- */
 
 .ProductView {

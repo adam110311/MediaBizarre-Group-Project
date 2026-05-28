@@ -8,7 +8,7 @@
     }
 }
 
-<article class="ProductCard">
+<article class="ProductCard" data-price="@Model.Price">
     <a class="ProductCard-media" asp-controller="Home" asp-action="Product" asp-route-id="@Model.Id">
         @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
         {
