@@ -146,10 +146,9 @@ namespace MediaBizzare.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DepartmentId")
-                        .IsUnique();
+                    b.HasIndex("DepartmentId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Department", b =>
@@ -182,7 +181,7 @@ namespace MediaBizzare.Migrations
                     b.HasIndex("ManagerId")
                         .IsUnique();
 
-                    b.ToTable("Departments");
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Employee", b =>
@@ -221,7 +220,7 @@ namespace MediaBizzare.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", (string)null);
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.EmployeeRole", b =>
@@ -236,7 +235,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("EmployeeRoles");
+                    b.ToTable("EmployeeRoles", (string)null);
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Employee_Contract", b =>
@@ -273,7 +272,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("EmployeeContracts");
+                    b.ToTable("EmployeeContracts", (string)null);
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Product", b =>
@@ -305,7 +304,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.ProductVariations", b =>
@@ -341,7 +340,7 @@ namespace MediaBizzare.Migrations
                     b.HasIndex("SKU")
                         .IsUnique();
 
-                    b.ToTable("ProductVariations");
+                    b.ToTable("ProductVariations", (string)null);
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Role", b =>
@@ -363,7 +362,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
