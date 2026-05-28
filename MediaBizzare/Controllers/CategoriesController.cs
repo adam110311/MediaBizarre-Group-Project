@@ -81,7 +81,7 @@ namespace MediaBizzare.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create([Bind("Id,DepartmentId,Name,Slug")] Category category)
+        public async Task<IActionResult> Create([Bind("Id,DepartmentId,Name,Slug,ImageUrl")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -119,7 +119,7 @@ namespace MediaBizzare.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin,DepartmentManager")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DepartmentId,Name,Slug")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DepartmentId,Name,Slug,ImageUrl")] Category category)
         {
             if (id != category.Id) return NotFound();
 

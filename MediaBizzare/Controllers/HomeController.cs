@@ -207,10 +207,11 @@ namespace MediaBizzare.Controllers
                 .OrderBy(c => c.Name)
                 .Select(c => new CategoryTileVM
                 {
-                    Name = c.Name,
-                    Slug = c.Slug,
-                    Action = "Category",
-                    Span = 1
+                    Name     = c.Name,
+                    Slug     = c.Slug,
+                    Action   = "Category",
+                    ImageUrl = c.ImageUrl ?? "",
+                    Span     = 1
                 })
                 .ToList();
         }

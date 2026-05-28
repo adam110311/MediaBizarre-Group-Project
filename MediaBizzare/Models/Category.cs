@@ -18,6 +18,9 @@ namespace MediaBizzare.Models
         [StringLength(150)]
         public string Slug { get; set; } = string.Empty;
 
+        [StringLength(500)]
+        public string? ImageUrl { get; set; }
+
         public ICollection<Product> Products { get; set; } = new List<Product>();
     }
 }

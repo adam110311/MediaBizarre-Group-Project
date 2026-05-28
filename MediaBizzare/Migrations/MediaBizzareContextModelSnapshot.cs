@@ -134,6 +134,10 @@ namespace MediaBizzare.Migrations
                     b.Property<int>("DepartmentId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -148,7 +152,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Department", b =>
@@ -181,7 +185,7 @@ namespace MediaBizzare.Migrations
                     b.HasIndex("ManagerId")
                         .IsUnique();
 
-                    b.ToTable("Departments", (string)null);
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Employee", b =>
@@ -220,7 +224,7 @@ namespace MediaBizzare.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.EmployeeRole", b =>
@@ -235,7 +239,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("EmployeeRoles", (string)null);
+                    b.ToTable("EmployeeRoles");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Employee_Contract", b =>
@@ -272,7 +276,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("EmployeeContracts", (string)null);
+                    b.ToTable("EmployeeContracts");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Product", b =>
@@ -304,7 +308,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.ProductVariations", b =>
@@ -340,7 +344,7 @@ namespace MediaBizzare.Migrations
                     b.HasIndex("SKU")
                         .IsUnique();
 
-                    b.ToTable("ProductVariations", (string)null);
+                    b.ToTable("ProductVariations");
                 });
 
             modelBuilder.Entity("MediaBizzare.Models.Role", b =>
@@ -362,7 +366,7 @@ namespace MediaBizzare.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
