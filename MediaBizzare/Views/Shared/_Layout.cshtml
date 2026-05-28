@@ -1,11 +1,4 @@
-﻿@{
-    string currentAction = "";
-    if (ViewContext.RouteData.Values["action"] != null)
-    {
-        currentAction = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
-    }
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -68,23 +61,7 @@
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </a>
-                <ul class="SubNav-links" id="navLinks">
-                    <li>
-                        <a class="@(currentAction == "CompLap" ? "SubNav-links-active" : "")" asp-controller="Home" asp-action="CompLap">Computer &amp; laptop</a>
-                    </li>
-                    <li>
-                        <a class="@(currentAction == "PhoneWear" ? "SubNav-links-active" : "")" asp-controller="Home" asp-action="PhoneWear">Smartphone &amp; wearables</a>
-                    </li>
-                    <li>
-                        <a class="@(currentAction == "TVaudio" ? "SubNav-links-active" : "")" asp-controller="Home" asp-action="TVaudio">TV &amp; audio</a>
-                    </li>
-                    <li>
-                        <a class="@(currentAction == "HA" ? "SubNav-links-active" : "")" asp-controller="Home" asp-action="HA">Household appliances</a>
-                    </li>
-                    <li>
-                        <a class="@(currentAction == "GameDivert" ? "SubNav-links-active" : "")" asp-controller="Home" asp-action="GameDivert">Game &amp; entertainment</a>
-                    </li>
-                </ul>
+                @await Component.InvokeAsync("NavCategories")
             </div>
         </nav>
     </header>

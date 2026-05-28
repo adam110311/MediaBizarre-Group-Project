@@ -88,13 +88,14 @@
                 <div class="ProductView-variants">
                     @for (int i = 0; i < Model.Variants.Count; i++)
                     {
-                        string v = Model.Variants[i];
-                        string activeClass = "";
-                        if (i == 0)
-                        {
-                            activeClass = "Chip-active";
-                        }
-                        <button type="button" class="Chip @activeClass">@v</button>
+                        var v = Model.Variants[i];
+                        string activeClass = i == 0 ? "Chip-active" : "";
+                        <button type="button"
+                                class="Chip @activeClass"
+                                data-variation-id="@v.VariationId"
+                                data-price="@v.Price.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)">
+                            @v.Label
+                        </button>
                     }
                 </div>
             </div>
@@ -105,7 +106,10 @@
                     <input type="number" min="1" max="99" value="1" />
                     <button type="button" class="QtyInc">+</button>
                 </div>
-                <button type="button" class="Btn Btn-primary" data-add-to-cart="@Model.Id">Add to cart</button>
+                <button type="button" class="Btn Btn-primary" id="addToCartBtn"
+                        data-variation-id="@(Model.Variants.FirstOrDefault()?.VariationId ?? 0)">
+                    Add to cart
+                </button>
             </div>
             <p class="ProductView-free">Free shipping over €50</p>
         </div>

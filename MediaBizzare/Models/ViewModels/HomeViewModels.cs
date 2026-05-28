@@ -8,6 +8,8 @@ namespace MediaBizzare.Models.ViewModels
     public class ProductCardVM
     {
         public int Id { get; set; }
+        /// <summary>ID of the cheapest variation — used as the cart target.</summary>
+        public int DefaultVariationId { get; set; }
         public string Slug { get; set; } = "";
         public string Name { get; set; } = "";
         public string ImageUrl { get; set; } = "";
@@ -16,6 +18,14 @@ namespace MediaBizzare.Models.ViewModels
         public string Category { get; set; } = "";
         public decimal Saving { get; set; }
         public bool OnSale { get; set; }
+    }
+
+    /// <summary>One selectable variant on the product detail page.</summary>
+    public class VariantOptionVM
+    {
+        public int VariationId { get; set; }
+        public string Label    { get; set; } = "";
+        public decimal Price   { get; set; }
     }
 
     public class CategoryTileVM
@@ -53,17 +63,18 @@ namespace MediaBizzare.Models.ViewModels
         public int ReviewCount { get; set; }
         public string Description { get; set; } = "";
         public List<string> Images { get; set; } = new List<string>();
-        public List<string> Variants { get; set; } = new List<string>();
+        public List<VariantOptionVM> Variants { get; set; } = new List<VariantOptionVM>();
     }
 
     public class CartItemVM
     {
-        public int Id { get; set; }
-        public string Name { get; set; } = "";
+        public int Id          { get; set; }   // ProductId
+        public int VariationId { get; set; }   // used by JS for remove / update
+        public string Name     { get; set; } = "";
         public string ImageUrl { get; set; } = "";
-        public string Variant { get; set; } = "";
+        public string Variant  { get; set; } = "";
         public decimal UnitPrice { get; set; }
-        public int Quantity { get; set; }
+        public int Quantity    { get; set; }
         public decimal LineTotal { get; set; }
     }
 

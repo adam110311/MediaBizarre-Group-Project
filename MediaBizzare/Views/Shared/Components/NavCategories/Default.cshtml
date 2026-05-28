@@ -1,0 +1,18 @@
+@model IEnumerable<MediaBizzare.Models.Category>
+@{
+    var currentSlug = ViewData["CurrentSlug"] as string ?? "";
+}
+
+<ul class="SubNav-links" id="navLinks">
+    @foreach (var category in Model)
+    {
+        <li>
+            <a class="@(currentSlug == category.Slug ? "SubNav-links-active" : "")"
+               asp-controller="Home"
+               asp-action="Category"
+               asp-route-slug="@category.Slug">
+                @category.Name
+            </a>
+        </li>
+    }
+</ul>

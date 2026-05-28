@@ -117,13 +117,16 @@
     margin: 0 auto;
     padding: 0 24px;
     display: grid;
+    /* 4 equal columns — with 8 DB categories this gives exactly 2 clean rows */
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    /* All tiles the same size; no span overrides from the controller */
 }
+
 
 @media (max-width: 960px) {
     .CatGrid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -461,6 +464,19 @@
 .Cart-thumb {
     width: 96px;
     height: 96px;
+    background: #F3F4F6;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.Cart-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .Cart-name {
